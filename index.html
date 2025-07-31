@@ -3,35 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Me</title>
+  <title>Professional Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
+  <canvas id="background"></canvas>
 
-  <div class="fixed-header">
-    <img src="your-photo.jpg" alt="Profile Photo" class="profile-photo" />
-    <div class="about-me">
-      <h1>About Me</h1>
-      <p>I am a creative and passionate individual with a strong background in design and development...</p>
-    </div>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="img/kurumsal.jpg" alt="Professional Photo" class="profile-pic" />
+      <div class="about">
+        <h2>About Me</h2>
+        <p>
+          I am a passionate and detail-oriented individual with a strong foundation in architectural technologies and data analysis. 
+          My academic background and real-world experience have empowered me to blend creativity with precision. 
+          I believe in continuous learning, and I’m dedicated to turning complex challenges into elegant solutions.
+        </p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="block">
+        <h2>Education</h2>
+        <p>
+          Marmara University — Econometrics (B.Sc.)<br/>
+          My academic journey allowed me to master quantitative analysis, statistical tools, and economic modeling, while developing a strong analytical mindset.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Skills</h2>
+        <ul>
+          <li>Excel & Advanced Data Visualization</li>
+          <li>SQL & Database Management</li>
+          <li>R & EViews (Econometric Analysis)</li>
+          <li>Revit, AutoCAD, Lumion for Architecture</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Experience</h2>
+        <p>
+          Internship at an Architecture Office – Applied architectural technologies, produced digital designs, and collaborated on structural plans.<br/><br/>
+          Construction Company (Aug 2023 – Present) – Managing project processes, budgeting, and on-site coordination.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Projects</h2>
+        <p>
+          ClearSeat Disposable Cover – Designed a hygienic product and developed a full marketing strategy.<br/><br/>
+          Celiac Awareness Campaign – “Gluten-Free Living: Comfort for Every Plate” – A nationwide awareness campaign crafted for impact.<br/><br/>
+          Philips Curve Econometric Model – Comprehensive academic research project analyzing inflation-unemployment dynamics in Turkey.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Contact</h2>
+        <p>
+          Email: nurcan@example.com<br/>
+          LinkedIn: linkedin.com/in/nurcankurtoğlu<br/>
+          Location: Istanbul, Turkey
+        </p>
+      </section>
+    </main>
   </div>
 
-  <div class="scroll-content">
-    <section>
-      <h2>Experience</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    </section>
-    <section>
-      <h2>Projects</h2>
-      <p>Project A, Project B, Project C...</p>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <p>email@example.com</p>
-    </section>
-  </div>
+  <script src="background.js"></script>
 </body>
 </html>
