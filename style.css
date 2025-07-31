@@ -28,7 +28,7 @@ body {
   height: auto;
   display: block;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 3px;
   margin-bottom: 1rem;
 }
 
