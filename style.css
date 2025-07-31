@@ -23,15 +23,46 @@ body {
   align-self: flex-start;
 }
 
+.profile-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.profile-photo-wrapper {
+  flex: 1 1 30%;
+  max-width: 30%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
 .profile-photo {
   width: 100%;
-  max-width: 300px;    
   height: auto;
   object-fit: contain;
   border-radius: 4px;
-  margin-bottom: 1rem;
   display: block;
-} 
+}
+
+.profile-text {
+  flex: 1 1 70%;
+  max-width: 70%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Mobil için */
+@media (max-width: 768px) {
+  .profile-photo-wrapper,
+  .profile-text {
+    max-width: 100%;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
 
 .about-sticky {
   background: rgba(0, 0, 0, 0.6);
