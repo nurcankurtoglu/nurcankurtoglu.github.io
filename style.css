@@ -22,7 +22,7 @@ body {
 .profile-photo {
   width: 180px;
   height: 180px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
   margin: 0 auto 35px auto;
   box-shadow: 0 8px 25px rgba(44, 62, 80, 0.2);
