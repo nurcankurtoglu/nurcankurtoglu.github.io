@@ -1,76 +1,95 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body, html {
-  height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
+  color: #e0e0e0;
+  background: #000;
   overflow-x: hidden;
-  background: transparent;
-}
-
-canvas#stars-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
 }
 
 .container {
   display: flex;
   min-height: 100vh;
-  padding: 60px 40px;
+  position: relative;
+  z-index: 1;
 }
 
-.left-panel {
-  width: 35%;
+.sidebar {
+  width: 30%;
+  background: transparent;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
   position: sticky;
-  top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-right: 30px;
+  top: 0;
+  align-self: flex-start;
 }
 
-.profile-pic {
-  width: 220px;
+.profile-photo {
+  width: 100%;
   height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.about-sticky {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  position: sticky;
+  top: 10px;
 }
 
-.about-me {
-  margin-top: 20px;
-  text-align: center;
+.about-sticky h2 {
+  color: #fff;
+  margin-top: 0;
 }
 
-.right-panel {
-  width: 65%;
-  padding-left: 40px;
+.main {
+  width: 70%;
+  padding: 2rem;
+  background: transparent;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 section {
-  margin-bottom: 80px;
-}
-
-h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
-  color: #ffffff;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 8px;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
   color: #ffffff;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.3rem;
 }
 
-p {
-  font-size: 18px;
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+p, li {
+  color: #ccc;
   line-height: 1.6;
-  color: #dddddd;
+  font-size: 0.95rem;
 }
 
+.stars-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.stars-background canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
