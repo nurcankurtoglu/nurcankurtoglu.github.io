@@ -33,3 +33,19 @@ p {
   font-size: 18px;
   line-height: 1.6;
 }
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
