@@ -1,39 +1,87 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nurcan Kurtoğlu - Portföy</title>
+  <title>Nurcan Kurtoğlu - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="container">
-    <section class="profile">
-      <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu" class="profile-photo" />
-      <h1>Nurcan Kurtoğlu</h1>
-      <p class="subtitle">Ekonometri Mezunu | Veri Analisti Adayı</p>
-    </section>
+  <canvas id="background"></canvas>
 
-    <section class="projects">
-      <h2>Ekonometrik Analiz Projelerim</h2>
-      <ul>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Türkiye'de Phillips Eğrisi Analizi (EViews, 1980-2023)</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Zaman Serisi Ekonometrisi: ADF, VAR, VECM ve Etki-Tepki Analizleri (R programı ile)</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">BIST100 BOG Analizleri – Zaman Serisi Yaklaşımıyla Piyasa Dinamikleri</a></li>
-      </ul>
-    </section>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="Kurumsal-Fotografim.jpg" alt="Nurcan Kurtoglu" class="profile-photo" />
+      <section class="about">
+        <h2>About Me</h2>
+        <p>
+          My choice to study Econometrics stems from its perfect alignment with my analytical thinking style.
+          I have a natural ability to analyze and interpret real-world data, which has always been my greatest strength.
+          I consistently demonstrate responsibility, efficiency, and a solution-oriented approach in every project I take part in.
+          I am self-motivated, passionate about growth, and guided by an idealistic mindset.
+        </p>
+        <h2>Education</h2>
+        <ul>
+          <li><strong>Şehit Edip Zengin High School</strong> — 2016–2020</li>
+          <li><strong>Marmara University, Econometrics</strong> — 2021–2025</li>
+        </ul>
+      </section>
+    </aside>
 
-    <section class="projects">
-      <h2>Pazarlama Alanındaki Projelerim</h2>
-      <ul>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Pazarlama Hukuku Proje Çalışması</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Reklamcılık ve Pazarlama Proje Çalışması</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Sosyal Medya Okuryazarlığı ve Pazarlama Stratejileri Proje Çalışması</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Yeni Medya ve Dijital Dönüşüm Üzerine Proje Çalışması</a></li>
-      </ul>
-    </section>
+    <main class="content">
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+          <li>R (Tidyverse, Time Series Analysis)</li>
+          <li>SQL & Database Querying</li>
+          <li>Advanced Excel</li>
+          <li>Econometric Modeling with EViews</li>
+          <li>Google Analytics, Meta Business Suite</li>
+          <li>Team Leadership, Project Execution</li>
+          <li>Independent Work Capability</li>
+          <li>Creative Problem-Solving</li>
+          <li>Strong Social Responsibility</li>
+          <li>Field Research Orientation</li>
+          <li>Idealistic and Idea-Driven Personality</li>
+        </ul>
+      </section>
 
-    <section class="contact">
-      <h2>İletişim</h2>
-      <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/nurcankurtoglu" target="_blank" rel="noopener noreferre_
+      <section class="experience">
+        <h2>Experience</h2>
+        <p>
+          📍 Over 1.5 years of internship experience, actively involved in field research, data collection, and analysis.  
+          📍 Currently working in the digital marketing department of a company, gaining hands-on experience in ad strategy, content planning, and performance analysis.
+        </p>
+      </section>
+
+      <section class="projects">
+        <h2>Projects</h2>
+        <h3>Econometrics</h3>
+        <ul>
+          <li>Phillips Curve Analysis in Turkey (EViews, 1980–2023)</li>
+          <li>Time Series Econometrics: ADF, VAR, VECM, Granger Causality (R)</li>
+          <li>BIST100 BOG Analysis – Time Series Approach</li>
+        </ul>
+
+        <h3>Marketing</h3>
+        <ul>
+          <li>Marketing Law Project</li>
+          <li>Advertising and Marketing Presentation</li>
+          <li>Social Media Literacy Project</li>
+          <li>New Media and Digital Transformation Report</li>
+        </ul>
+      </section>
+
+      <section class="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank">linkedin.com/in/nurcankurtoglu</a></p>
+        <p>📍 Istanbul, Türkiye</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="background.js"></script>
+</body>
+</html>
