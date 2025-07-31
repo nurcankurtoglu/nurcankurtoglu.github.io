@@ -1,51 +1,48 @@
+/* Genel Gövde Ayarları */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f5f7fa;  /* Açık gri-mavi ton */
+  color: #2c3e50;             /* Koyu mavi-gri metin */
   margin: 0;
   padding: 0;
-  color: #333;
 }
 
+/* Ana Konteyner */
 .container {
   max-width: 900px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  margin: 60px auto;
+  padding: 40px 35px;
+  background-color: #ffffff;  /* Saf beyaz */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   text-align: center;
 }
 
-img {
-  width: 160px;
-  height: 160px;
+/* Profil Fotoğrafı */
+.profile-photo {
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin: 0 auto 35px auto;
+  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.2);
+  transition: transform 0.3s ease;
+}
+.profile-photo:hover {
+  transform: scale(1.05);
 }
 
+/* Başlıklar */
 h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  color: #1a2a42; /* Daha koyu ve ciddi */
+  letter-spacing: 1.2px;
 }
 
-p {
-  font-size: 18px;
-  line-height: 1.6;
-}
+h2 {
+  color: #34495e;  /* Orta koyulukta mavi-gri */
+  font-weight: 600;
+  margin: 50px 0
 
-footer {
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #777;
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-}
