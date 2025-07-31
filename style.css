@@ -1,146 +1,76 @@
-/* Reset */
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html, body {
+
+body, html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
   overflow-x: hidden;
   background: transparent;
-  color: #bfbfbf; /* matte white default text */
 }
 
-canvas#background {
+canvas#stars-bg {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  left: 0;
   z-index: -1;
-  background-color: #0a0a1a;
 }
 
-/* Container */
 .container {
   display: flex;
-  height: 100vh;
-  background-color: rgba(10, 10, 26, 0.9);
+  min-height: 100vh;
+  padding: 60px 40px;
 }
 
-/* Sidebar: fixed on scroll */
-.sidebar {
+.left-panel {
+  width: 35%;
   position: sticky;
-  top: 0;
-  width: 30%;
-  min-width: 280px;
-  padding: 2.5rem 2rem;
-  background: rgba(25, 25, 40, 0.97);
+  top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  user-select: none;
-  height: 100vh;
+  padding-right: 30px;
 }
 
-/* Profile picture */
 .profile-pic {
-  width: 100%;
-  max-width: 220px;
-  object-fit: cover;
-  border: 3px solid #888;
-  border-radius: 6px; /* Not circle */
-  margin-bottom: 1.8rem;
-  filter: drop-shadow(0 0 6px #999);
-  transition: transform 0.3s ease;
-}
-.profile-pic:hover {
-  transform: scale(1.05);
-}
-
-/* About Me */
-.about-me {
-  text-align: center;
-  max-width: 320px;
-}
-.about-me h2 {
-  font-size: 2.4rem;
-  color: #dedede; /* slightly matte bright white */
-  margin-bottom: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-  user-select: text;
-}
-.about-me p {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: #a6a6a6; /* matte white */
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  user-select: text;
-}
-
-/* Main content */
-.main-content {
-  width: 70%;
-  height: 100vh;
-  overflow-y: scroll;
-  padding: 3rem 4rem;
-  color: #ccc;
-  scroll-behavior: smooth;
-}
-
-/* Section styling */
-.main-content section {
-  margin-bottom: 3.5rem;
-  user-select: text;
-}
-
-/* Headings */
-.main-content h2 {
-  font-size: 2.2rem;
-  color: #ffffff; /* bright white */
-  font-weight: 800;
-  border-bottom: 2px solid #ffffff44;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
-}
-.main-content h3 {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-  color: #f5f5f5;
-  letter-spacing: 0.02em;
-}
-
-/* Paragraphs and lists */
-.main-content p, .main-content ul {
-  font-size: 1.15rem;
-  line-height: 1.85;
-  color: #cfcfcf; /* matte white */
-  font-weight: 400;
-}
-.main-content ul {
-  list-style-type: disc;
-  margin-left: 1.8rem;
-}
-.main-content ul li {
-  margin-bottom: 0.6rem;
-}
-
-/* Scrollbar styling for modern browsers */
-.main-content::-webkit-scrollbar {
-  width: 10px;
-}
-.main-content::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.05);
-}
-.main-content::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.25);
+  width: 220px;
+  height: auto;
   border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
-.main-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.4);
+
+.about-me {
+  margin-top: 20px;
+  text-align: center;
 }
+
+.right-panel {
+  width: 65%;
+  padding-left: 40px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #dddddd;
+}
+
