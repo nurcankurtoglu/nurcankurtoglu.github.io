@@ -2,30 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nurcan Kurtoğlu - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nurcan Kurtoglu - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: white;
+      overflow-x: hidden;
+    }
+    canvas#background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+    .main-wrapper {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      width: 100%;
+    }
+    .sidebar {
+      width: 30%;
+      background-color: rgba(20, 20, 30, 0.9);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+    .profile-photo {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    .content {
+      width: 70%;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #58a6ff;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <canvas id="background"></canvas>
-
-  <div class="container">
+  <div class="main-wrapper">
     <aside class="sidebar">
-      <img src="Kurumsal-Fotografim.jpg" alt="Nurcan Kurtoglu" class="profile-photo" />
+      <img src="kurumsal.jpg" alt="Nurcan Kurtoglu" class="profile-photo" />
+    </aside>
+    <main class="content">
       <section class="about">
         <h2>About Me</h2>
         <p>
-          My decision to study Econometrics stems from the strong alignment between the field and my analytical mindset. My ability to analyze and interpret real-world data has always been my greatest strength. I take responsibility, contribute with a solution-oriented approach, and constantly prioritize personal development with an idealistic mindset.
+          I chose to study Econometrics because the field aligns perfectly with my analytical mindset. My ability to analyze and interpret real-world data has always been my strongest asset. In every role, I act with a sense of responsibility and contribute with a solution-oriented approach. I am a dedicated, idealistic individual who always prioritizes personal development.
         </p>
+      </section>
+
+      <section class="education">
         <h2>Education</h2>
         <ul>
-          <li><strong>Şehit Edip Zengin High School</strong> — 2016–2020</li>
-          <li><strong>Marmara University, Econometrics</strong> — 2021–2025</li>
+          <li>Şehit Edip Zengin High School — 2016–2020</li>
+          <li>Marmara University, Econometrics — 2021–2025</li>
         </ul>
       </section>
-    </aside>
 
-    <main class="content">
       <section class="skills">
         <h2>Skills</h2>
         <ul>
@@ -34,21 +98,21 @@
           <li>SQL & Database Querying</li>
           <li>Advanced Excel</li>
           <li>Econometric Modeling with EViews</li>
-          <li>Google Analytics, Meta Business Suite</li>
-          <li>Team Leadership, Project Execution</li>
-          <li>Independent Work Capability</li>
-          <li>Creative Problem-Solving</li>
+          <li>Google Analytics, Meta Business</li>
+          <li>Team Leadership & Execution</li>
+          <li>Independent Responsibility</li>
+          <li>Creative Problem Solving</li>
           <li>Strong Social Responsibility</li>
-          <li>Field Research Orientation</li>
-          <li>Idealistic and Idea-Driven Personality</li>
+          <li>Field Research Enthusiast</li>
+          <li>Idealistic & Idea Generator</li>
         </ul>
       </section>
 
       <section class="experience">
         <h2>Experience</h2>
         <p>
-          📍 Over 1.5 years of internship experience with active roles in field research, data collection, and analysis.<br>
-          📍 Currently working in a company's digital marketing department, gaining hands-on experience in ad strategy, content planning, and performance analysis.
+          📍 1.5 years of internship experience actively involved in field research, data collection and analysis.<br>
+          📍 Currently working in a digital marketing department, gaining experience in ad strategy, content planning, and performance analysis.
         </p>
       </section>
 
@@ -60,13 +124,12 @@
           <li>Time Series Econometrics: ADF, VAR, VECM, Granger Causality (R)</li>
           <li>BIST100 BOG Analysis – Time Series Approach</li>
         </ul>
-
         <h3>Marketing</h3>
         <ul>
           <li>Marketing Law Project</li>
           <li>Advertising and Marketing Presentation</li>
           <li>Social Media Literacy Project</li>
-          <li>New Media and Digital Transformation Report</li>
+          <li>Digital Transformation Report</li>
         </ul>
       </section>
 
@@ -79,6 +142,39 @@
     </main>
   </div>
 
-  <script src="background.js"></script>
+  <script>
+    // Simple star animation
+    const canvas = document.getElementById('background');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const stars = Array.from({ length: 100 }).map(() => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.5,
+      d: Math.random() * 1
+    }));
+
+    function drawStars() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'white';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+        star.y += star.d;
+        if (star.y > height) star.y = 0;
+      });
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+  </script>
 </body>
 </html>
