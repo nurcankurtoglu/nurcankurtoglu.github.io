@@ -1,4 +1,5 @@
-// Hareketli yıldız arka plan animasyonu - profesyonel, hafif ve şık
+// Lightweight professional animated starry background
+
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
 
@@ -23,25 +24,3 @@ window.addEventListener('resize', resize);
 resize();
 
 class Star {
-  constructor() {
-    this.x = Math.random() * width;
-    this.y = Math.random() * height;
-    this.radius = Math.random() * 1.5 + 0.5;
-    this.alpha = Math.random();
-    this.alphaChange = (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1);
-  }
-  update() {
-    this.alpha += this.alphaChange;
-    if (this.alpha <= 0) {
-      this.alpha = 0;
-      this.alphaChange = -this.alphaChange;
-    } else if (this.alpha >= 1) {
-      this.alpha = 1;
-      this.alphaChange = -this.alphaChange;
-    }
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 255, 255
-
