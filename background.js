@@ -1,34 +1,17 @@
-// background.js
-
+// Hareketli yıldız arka plan animasyonu - profesyonel, hafif ve şık
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
 
 canvas.style.position = 'fixed';
-canvas.style.top = '0';
-canvas.style.left = '0';
+canvas.style.top = 0;
+canvas.style.left = 0;
 canvas.style.width = '100%';
 canvas.style.height = '100%';
 canvas.style.zIndex = '-1';
 canvas.style.pointerEvents = 'none';
 
 const ctx = canvas.getContext('2d');
-
-let stars = [];
 let width, height;
-
-function init() {
-  resize();
-  stars = [];
-  for (let i = 0; i < 150; i++) {
-    stars.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.3 + 0.2,
-      alpha: Math.random(),
-      alphaSpeed: 0.005 + Math.random() * 0.01
-    });
-  }
-}
 
 function resize() {
   width = window.innerWidth;
@@ -36,30 +19,29 @@ function resize() {
   canvas.width = width;
   canvas.height = height;
 }
+window.addEventListener('resize', resize);
+resize();
 
-function animate() {
-  ctx.clearRect(0, 0, width, height);
-  for (let star of stars) {
-    star.alpha += star.alphaSpeed;
-    if (star.alpha <= 0) {
-      star.alpha = 0;
-      star.alphaSpeed = -star.alphaSpeed;
-    } else if (star.alpha >= 1) {
-      star.alpha = 1;
-      star.alphaSpeed = -star.alphaSpeed;
-    }
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-    ctx.fill();
+class Star {
+  constructor() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.radius = Math.random() * 1.5 + 0.5;
+    this.alpha = Math.random();
+    this.alphaChange = (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1);
   }
-  requestAnimationFrame(animate);
-}
+  update() {
+    this.alpha += this.alphaChange;
+    if (this.alpha <= 0) {
+      this.alpha = 0;
+      this.alphaChange = -this.alphaChange;
+    } else if (this.alpha >= 1) {
+      this.alpha = 1;
+      this.alphaChange = -this.alphaChange;
+    }
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255
 
-window.addEventListener('resize', () => {
-  resize();
-  init();
-});
-
-init();
-animate();
