@@ -1,80 +1,55 @@
-const canvas = document.getElementById("background");
+const canvas = document.getElementById("stars-bg");
 const ctx = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 let stars = [];
-const STAR_COUNT = 350;
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-class Star {
-  constructor() {
-    this.reset();
-  }
-  reset() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.radius = Math.random() * 1.5 + 0.5;
-    this.speed = Math.random() * 0.25 + 0.05;
-    this.alpha = Math.random() * 0.7 + 0.3;
-    this.alphaDirection = Math.random() > 0.5 ? 1 : -1;
-  }
-  update() {
-    this.y += this.speed;
-    if(this.y > canvas.height) this.y = 0;
-
-    // Twinkle effect
-    this.alpha += 0.008 * this.alphaDirection;
-    if (this.alpha >= 1) this.alphaDirection = -1;
-    else if (this.alpha <= 0.3) this.alphaDirection = 1;
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-    ctx.shadowColor = 'white';
-    ctx.shadowBlur = 8;
-    ctx.fill();
-  }
+for (let i = 0; i < 300; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1.5,
+    alpha: Math.random(),
+    dx: (Math.random() - 0.5) * 0.5,
+    dy: (Math.random() - 0.5) * 0.5
+  });
 }
 
-// Create stars
-for(let i=0; i<STAR_COUNT; i++) {
-  stars.push(new Star());
-}
-
-// Animate stars
-function animate() {
+function drawStars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach((star) => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+    ctx.fill();
+  });
+}
 
-  // Move stars slightly horizontally based on scroll
-  const scrollY = window.scrollY || window.pageYOffset;
-  for(let star of stars) {
-    star.x += (scrollY * 0.0003) * (star.radius * 2); // subtle parallax effect
-    if(star.x > canvas.width) star.x = 0;
-    star.update();
-    star.draw();
-  }
+function updateStars() {
+  stars.forEach((star) => {
+    star.x += star.dx;
+    star.y += star.dy;
+    star.alpha += (Math.random() - 0.5) * 0.05;
+
+    if (star.alpha < 0) star.alpha = 0;
+    if (star.alpha > 1) star.alpha = 1;
+
+    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+  });
+}
+
+function animate() {
+  drawStars();
+  updateStars();
   requestAnimationFrame(animate);
 }
+
 animate();
 
-// Stars react to mouse movement
-document.addEventListener('mousemove', e => {
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-
-  stars.forEach(star => {
-    const dx = star.x - mouseX;
-    const dy = star.y - mouseY;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if(dist < 120) {
-      star.x += (dx / dist) * 0.6;
-      star.y += (dy / dist) * 0.6;
-    }
-  });
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
