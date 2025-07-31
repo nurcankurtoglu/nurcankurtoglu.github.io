@@ -13,7 +13,7 @@ body, html {
   overflow-x: hidden;
 }
 
-/* Sidebar - Sol panel */
+/* --- Sidebar: Sol panel sabit --- */
 .sidebar {
   position: fixed;
   top: 0;
@@ -30,21 +30,25 @@ body, html {
   z-index: 1000;
 }
 
-/* Fotoğraf */
+/* Fotoğraf boyutu optimize edildi */
 .sidebar img {
   max-width: 280px;
+  max-height: 320px;
+  width: auto;
   height: auto;
   border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.9);
   margin-bottom: 25px;
   object-fit: contain;
   user-select: none;
+  flex-shrink: 0;
 }
 
-/* About Me */
+/* About Me - Sidebar içinde */
 .about-me {
   width: 100%;
   text-align: center;
+  flex-shrink: 0;
 }
 .about-me h2 {
   font-weight: 700;
@@ -62,15 +66,17 @@ body, html {
   color: #cccccc;
   margin-bottom: 20px;
   user-select: text;
+  white-space: normal;
 }
 
-/* Ana içerik - sağ taraf */
+/* Sağdaki ana içerik (scroll edilebilir) */
 .content {
-  margin-left: 340px;
+  margin-left: 340px; /* Sidebar genişliği + boşluk */
   padding: 60px 60px 80px 60px;
   max-width: 900px;
   line-height: 1.65;
   overflow-y: visible;
+  user-select: text;
 }
 
 /* Başlıklar */
@@ -82,7 +88,6 @@ body, html {
   border-bottom: 3px solid #61dafb;
   padding-bottom: 6px;
   letter-spacing: 1px;
-  user-select: text;
 }
 
 .content h3 {
@@ -92,7 +97,6 @@ body, html {
   margin-top: 35px;
   margin-bottom: 15px;
   letter-spacing: 0.5px;
-  user-select: text;
 }
 
 /* Paragraflar ve listeler */
@@ -100,7 +104,6 @@ body, html {
   font-weight: 300;
   font-size: 1.15rem;
   color: #d0d0d0;
-  user-select: text;
   margin-bottom: 30px;
 }
 
@@ -118,7 +121,6 @@ body, html {
   color: #61dafb;
   font-weight: 600;
   text-decoration: none;
-  user-select: text;
 }
 .content a:hover {
   text-decoration: underline;
@@ -134,6 +136,7 @@ body, html {
   }
   .sidebar img {
     max-width: 200px;
+    max-height: 220px;
     margin-bottom: 15px;
   }
   .about-me h2 {
