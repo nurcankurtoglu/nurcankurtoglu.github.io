@@ -1,192 +1,86 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #121212;
-  color: #ccc;
-  overflow: hidden; /* Tüm sayfa scroll body’de değil content'te */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* BODY GRID - 3 SÜTUN */
-/* Solda 1/3 sabit sidebar, sağda 2/3 scroll edilebilir content */
 body {
-  display: grid;
-  grid-template-columns: 33.33% 66.67%;
-  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: transparent;
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* --- Sidebar: sabit, yatayda 1/3 genişlik, üstte yan yana foto+about me --- */
-.sidebar {
+#stars-background {
   position: fixed;
   top: 0;
   left: 0;
-  width: 33.33vw;    /* ekranın 1/3’ü */
-  height: 100vh;
-  background-color: #1e1e1e;
-  box-shadow: 4px 0 25px rgba(0,0,0,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 20px;
-  user-select: none;
-  z-index: 10;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
 }
 
-/* Fotoğraf ve About Me container */
-.sidebar > img.profile-pic {
-  max-height: 280px;
-  max-width: 45%;
+.container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.profile-img {
+  width: 100%;
+  height: auto;
   object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.9);
-  flex-shrink: 0;
-  user-select: none;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
-/* About Me sağda */
-.sidebar .about-me {
-  max-width: 50%;
-  color: #ccc;
-  user-select: text;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.about-me {
+  margin-top: 1rem;
 }
 
-.sidebar .about-me h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 2.2rem;
-  color: #fff;
-  margin-bottom: 15px;
-  user-select: text;
-  letter-spacing: 1px;
-  text-shadow: 0 0 8px #61dafb;
-}
-
-.sidebar .about-me p {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ccc;
-  user-select: text;
-  white-space: normal;
-}
-
-/* --- Sağdaki içerik - scrollable --- */
 .content {
-  grid-column: 2 / 3;
-  height: 100vh;
-  overflow-y: auto;
-  padding: 60px 60px 80px 60px;
-  user-select: text;
-  scroll-behavior: smooth;
-  color: #ccc;
+  width: 70%;
+  padding-bottom: 5rem;
 }
 
-/* Başlıklar */
-.content h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 2.6rem;
-  color: #fff;
-  margin-bottom: 18px;
-  border-bottom: 3px solid #61dafb;
-  padding-bottom: 6px;
-  letter-spacing: 1.2px;
-  user-select: text;
-  text-shadow: 0 0 10px rgba(255,255,255,0.8);
-}
-
-.content h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+h2 {
   font-size: 1.8rem;
-  color: #ddd;
-  margin-top: 35px;
-  margin-bottom: 15px;
-  letter-spacing: 0.6px;
-  user-select: text;
-  text-shadow: 0 0 6px rgba(255,255,255,0.6);
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
-/* Paragraf ve listeler */
-.content p, .content ul {
-  font-weight: 400;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #ccc;
-  margin-bottom: 28px;
-  user-select: text;
+h3 {
+  font-size: 1.3rem;
+  color: #f0f0f0;
+  margin-top: 1.5rem;
 }
 
-.content ul {
-  padding-left: 26px;
-  list-style-type: disc;
+ul {
+  list-style: none;
+  padding-left: 1rem;
 }
 
-.content ul li {
-  margin-bottom: 14px;
+ul li {
+  margin-bottom: 0.5rem;
+  color: #cccccc;
+  font-size: 1rem;
 }
 
-/* Linkler */
-.content a {
-  color: #61dafb;
-  font-weight: 600;
-  text-decoration: none;
-  user-select: text;
-}
-.content a:hover {
-  text-decoration: underline;
+section {
+  margin-bottom: 2.5rem;
 }
 
-/* Responsive */
-@media (max-width: 950px) {
-  body {
-    display: block;
-  }
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    padding: 25px 20px;
-    gap: 25px;
-  }
-  .sidebar > img.profile-pic {
-    max-width: 60%;
-    max-height: 220px;
-  }
-  .sidebar .about-me {
-    max-width: 100%;
-    text-align: center;
-  }
-  .sidebar .about-me h2 {
-    font-size: 1.8rem;
-  }
-  .sidebar .about-me p {
-    font-size: 1rem;
-  }
-  .content {
-    height: auto;
-    padding: 40px 20px;
-  }
-  .content h2 {
-    font-size: 2rem;
-  }
-  .content h3 {
-    font-size: 1.4rem;
-  }
-  .content p, .content ul {
-    font-size: 1rem;
-  }
-}
