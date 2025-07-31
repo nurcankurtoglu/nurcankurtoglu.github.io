@@ -2,43 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personal Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="stars"></canvas>
+  <canvas id="stars-bg"></canvas>
 
   <div class="container">
-    <aside class="sidebar">
-      <img src="kurumsal.jpg" alt="Kurumsal Fotoğrafım" class="profile-pic"/>
-      <h2>About Me</h2>
-      <p>I am a passionate architect and data enthusiast. I thrive on learning, building, and contributing to creative and analytical projects that inspire innovation.</p>
-    </aside>
+    <div class="left-panel">
+      <img src="Kurumsal Fotoğrafım.jpg" alt="Profile Photo" class="profile-pic" />
+      <div class="about-me">
+        <h2>About Me</h2>
+        <p>Hello! I’m a passionate designer and developer with a love for crafting beautiful and functional websites. I specialize in user experience, clean code, and impactful visuals.</p>
+      </div>
+    </div>
 
-    <main class="content">
+    <div class="right-panel">
       <section>
-        <h2>Experience</h2>
-        <p>Architectural Intern at XYZ Architecture Office (2023)<br/>
-        Focused on 3D visualization, technical drawings, and site coordination.</p>
+        <h1>Projects</h1>
+        <p>I’ve worked on various web and mobile apps, ranging from e-commerce platforms to personal blogs. Each project reflects my dedication to detail and innovation.</p>
       </section>
 
       <section>
-        <h2>Education</h2>
-        <p>Marmara University, Architectural Technology<br/>
-        (2021–Present)</p>
+        <h1>Experience</h1>
+        <p>With over 5 years in the industry, I’ve collaborated with cross-functional teams and delivered successful outcomes across multiple domains including fintech and health tech.</p>
       </section>
 
       <section>
-        <h2>Skills</h2>
-        <p>AutoCAD, Revit, 3ds Max, Lumion, Photoshop, Excel, SQL</p>
+        <h1>Contact</h1>
+        <p>You can reach me via email at yourname@example.com or connect with me on LinkedIn and GitHub.</p>
       </section>
-
-      <section>
-        <h2>Goals</h2>
-        <p>To merge architecture and data analysis to solve real-world design challenges and contribute to smart, sustainable urban projects.</p>
-      </section>
-    </main>
+    </div>
   </div>
 
   <script src="background.js"></script>
