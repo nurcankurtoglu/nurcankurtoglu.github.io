@@ -1,111 +1,84 @@
 <!DOCTYPE html>
-<html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nurcan Kurtoğlu | Portfolio</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nurcan Kurtoğlu - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="background"></canvas>
 
-      .container {
-        display: flex;
-        min-height: 100vh;
-      }
+  <div class="container">
+    <aside class="sidebar">
+      <img src="Kurumsal-Fotografim.jpg" alt="Nurcan Kurtoglu" class="profile-photo" />
+      <section class="about">
+        <h2>About Me</h2>
+        <p>
+          My decision to study Econometrics stems from the strong alignment between the field and my analytical mindset. My ability to analyze and interpret real-world data has always been my greatest strength. I take responsibility, contribute with a solution-oriented approach, and constantly prioritize personal development with an idealistic mindset.
+        </p>
+        <h2>Education</h2>
+        <ul>
+          <li><strong>Şehit Edip Zengin High School</strong> — 2016–2020</li>
+          <li><strong>Marmara University, Econometrics</strong> — 2021–2025</li>
+        </ul>
+      </section>
+    </aside>
 
-      .sidebar {
-        width: 30%;
-        background-color: #ffffff;
-        padding: 30px;
-        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+    <main class="content">
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+          <li>R (Tidyverse, Time Series Analysis)</li>
+          <li>SQL & Database Querying</li>
+          <li>Advanced Excel</li>
+          <li>Econometric Modeling with EViews</li>
+          <li>Google Analytics, Meta Business Suite</li>
+          <li>Team Leadership, Project Execution</li>
+          <li>Independent Work Capability</li>
+          <li>Creative Problem-Solving</li>
+          <li>Strong Social Responsibility</li>
+          <li>Field Research Orientation</li>
+          <li>Idealistic and Idea-Driven Personality</li>
+        </ul>
+      </section>
 
-      .sidebar img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 20px;
-      }
+      <section class="experience">
+        <h2>Experience</h2>
+        <p>
+          📍 Over 1.5 years of internship experience with active roles in field research, data collection, and analysis.<br>
+          📍 Currently working in a company's digital marketing department, gaining hands-on experience in ad strategy, content planning, and performance analysis.
+        </p>
+      </section>
 
-      .sidebar h2 {
-        font-size: 24px;
-        margin: 10px 0 5px;
-      }
+      <section class="projects">
+        <h2>Projects</h2>
+        <h3>Econometrics</h3>
+        <ul>
+          <li>Phillips Curve Analysis in Turkey (EViews, 1980–2023)</li>
+          <li>Time Series Econometrics: ADF, VAR, VECM, Granger Causality (R)</li>
+          <li>BIST100 BOG Analysis – Time Series Approach</li>
+        </ul>
 
-      .sidebar p {
-        margin: 0 0 15px;
-        text-align: center;
-      }
+        <h3>Marketing</h3>
+        <ul>
+          <li>Marketing Law Project</li>
+          <li>Advertising and Marketing Presentation</li>
+          <li>Social Media Literacy Project</li>
+          <li>New Media and Digital Transformation Report</li>
+        </ul>
+      </section>
 
-      .main {
-        width: 70%;
-        padding: 40px;
-      }
+      <section class="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank">linkedin.com/in/nurcankurtoglu</a></p>
+        <p>📍 Istanbul, Türkiye</p>
+      </section>
+    </main>
+  </div>
 
-      .section {
-        margin-bottom: 40px;
-      }
-
-      .section h3 {
-        font-size: 22px;
-        border-bottom: 2px solid #e0e0e0;
-        padding-bottom: 8px;
-        margin-bottom: 20px;
-      }
-
-      .section ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .section ul li {
-        margin-bottom: 10px;
-        line-height: 1.6;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="sidebar">
-        <img src="kurumsal_fotograf.jpg" alt="Kurumsal Fotoğraf" />
-        <h2>Nurcan Kurtoğlu</h2>
-        <p>Veri Analisti Adayı | Ekonometri Mezunu</p>
-      </div>
-      <div class="main">
-        <div class="section">
-          <h3>Hakkımda</h3>
-          <p>Marmara Üniversitesi Ekonometri mezunuyum. Veri analizi, Excel, SQL ve Python konularında yetkinim. Veri bilimi alanında kariyer hedefliyorum.</p>
-        </div>
-
-        <div class="section">
-          <h3>Eğitim</h3>
-          <ul>
-            <li><strong>Marmara Üniversitesi</strong> - Ekonometri Lisans (20XX - 20XX)</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h3>Projeler</h3>
-          <ul>
-            <li>Veri Görselleştirme ile Satış Analizi Projesi (Excel + Power BI)</li>
-            <li>DGS Hazırlık Tahmin Modeli (Python ile veri modelleme)</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h3>İletişim</h3>
-          <p>Email: nurcankurtoglu@example.com</p>
-          <p>LinkedIn: linkedin.com/in/nurcankurtoglu</p>
-        </div>
-      </div>
-    </div>
-  </body>
+  <script src="background.js"></script>
+</body>
 </html>
