@@ -1,80 +1,88 @@
-/* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
 }
 
-body {
-  background: #000;
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  color: #f5f5f5;
+  background: transparent;
   overflow-x: hidden;
-  color: rgba(255, 255, 255, 0.85);
 }
 
-.fixed-header {
+canvas#background {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 33vh;
+  z-index: -1;
+}
+
+.container {
   display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 30%;
+  min-width: 300px;
+  background-color: rgba(20, 20, 30, 0.95);
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
-  z-index: 10;
-  padding: 20px;
-  background: transparent;
 }
 
-.profile-photo {
-  width: auto;
-  height: 90%;
-  border-radius: 16px;
+.profile-pic {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  margin-bottom: 1rem;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
-.about-me {
-  max-width: 600px;
-  color: rgba(255, 255, 255, 0.85);
+.about h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.about-me h1 {
-  font-size: 2.5rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 10px;
-}
-
-.about-me p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.75);
+.about p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-align: center;
   line-height: 1.6;
 }
 
-/* Scrollable content starts below the fixed header */
-.scroll-content {
-  margin-top: 34vh;
-  padding: 60px 80px;
-  z-index: 5;
-  position: relative;
+.content {
+  flex-grow: 1;
+  padding: 3rem;
+  background-color: transparent;
 }
 
-.scroll-content section {
-  margin-bottom: 80px;
+.block {
+  margin-bottom: 3rem;
 }
 
-.scroll-content h2 {
-  font-size: 2rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 16px;
+.block h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 0.5rem;
 }
 
-.scroll-content p {
+.block p, .block ul {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
+  color: #dcdcdc;
+  line-height: 1.8;
+}
+
+.block ul li {
+  margin-bottom: 0.5rem;
 }
