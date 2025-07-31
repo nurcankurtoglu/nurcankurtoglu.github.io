@@ -1,4 +1,3 @@
-/* Genel Gövde */
 body {
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -11,38 +10,45 @@ body {
   align-items: center;
 }
 
-/* Ana Konteyner */
 .container {
+  display: flex;
+  max-width: 900px;
+  width: 90%;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  max-width: 850px;
-  width: 90%;
-  padding: 50px 40px;
-  text-align: center;
-  color: #fff;
-  transition: transform 0.4s ease;
-}
-.container:hover {
-  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  padding: 40px;
+  gap: 50px;
 }
 
-/* Profil Fotoğrafı */
+/* Sol sütun - Fotoğraf */
+.left-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Yukarı hizalama yerine başlangıç */
+  padding-top: 30px; /* Fotoğrafı biraz aşağı kaydır */
+}
+
 .profile-photo {
   width: 180px;
   height: 180px;
-  border-radius: 25%;  /* Hafif oval */
+  border-radius: 20%; /* Hafif oval */
   object-fit: cover;
-  margin-bottom: 30px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   transition: box-shadow 0.3s ease;
 }
 .profile-photo:hover {
   box-shadow: 0 25px 60px rgba(255, 255, 255, 0.5);
 }
 
-/* Başlıklar */
+/* Sağ sütun - Metinler */
+.right-column {
+  flex: 2;
+  color: #fff;
+}
+
 h1 {
   font-weight: 800;
   font-size: 3rem;
@@ -53,23 +59,19 @@ h1 {
 
 h2 {
   font-weight: 700;
-  font-size: 1.9rem;
-  margin: 50px 0 20px 0;
+  font-size: 1.8rem;
+  margin: 40px 0 20px 0;
   border-bottom: 3px solid #a18cd1;
   padding-bottom: 8px;
-  max-width: 340px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 350px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 
-/* Listeler */
 ul {
   list-style: none;
   padding-left: 0;
   max-width: 700px;
-  margin: 0 auto 40px auto;
-  text-align: left;
+  margin-bottom: 40px;
 }
 
 li {
@@ -79,10 +81,72 @@ li {
   font-size: 1.15rem;
   line-height: 1.5;
   color: #dcd6f7;
-  transition: color 0.3s ease;
 }
 
 li::before {
   content: "→";
   position: absolute;
-  left:
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a18cd1;
+  font-weight: 700;
+}
+
+a {
+  color: #c3baff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #e2dbff;
+  border-bottom-color: #e2dbff;
+  outline: none;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 8px 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+footer {
+  margin-top: 60px;
+  font-size: 0.95rem;
+  color: #b5a8f7;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 0 0 3px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  .left-column {
+    justify-content: center;
+    padding-top: 0;
+    margin-bottom: 30px;
+  }
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+    max-width: 100%;
+  }
+  li {
+    font-size: 1rem;
+  }
+}
