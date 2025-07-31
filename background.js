@@ -1,51 +1,25 @@
-const canvas = document.getElementById('background');
-const ctx = canvas.getContext('2d');
-
-let width, height;
-let stars = [];
-
-function init() {
-  resize();
-  createStars(150);
-  animate();
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0b1d38;
+  overflow: hidden;
+  color: #f1f1f1;
+  position: relative;
 }
 
-function resize() {
-  width = window.innerWidth;
-  height = window.innerHeight;
-  canvas.width = width;
-  canvas.height = height;
+/* Basit yıldızlar */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 30% 40%, #eee, transparent),
+    radial-gradient(1px 1px at 70% 60%, #ddd, transparent),
+    radial-gradient(2px 2px at 90% 80%, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  z-index: 0;
+  pointer-events: none;
 }
-
-window.addEventListener('resize', resize);
-
-function createStars(count) {
-  stars = [];
-  for(let i=0; i < count; i++) {
-    stars.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.2 + 0.5,
-      alpha: Math.random(),
-      alphaChange: (Math.random() * 0.02) + 0.005
-    });
-  }
-}
-
-function animate() {
-  ctx.clearRect(0, 0, width, height);
-  for(let star of stars) {
-    star.alpha += star.alphaChange;
-    if(star.alpha <= 0 || star.alpha >= 1) star.alphaChange *= -1;
-
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-    ctx.shadowColor = 'rgba(255, 255, 255, 0.7)';
-    ctx.shadowBlur = 8;
-    ctx.fill();
-  }
-  requestAnimationFrame(animate);
-}
-
-init();
