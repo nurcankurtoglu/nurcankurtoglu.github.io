@@ -1,25 +1,65 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #0b1d38;
-  overflow: hidden;
-  color: #f1f1f1;
-  position: relative;
+// background.js
+
+const canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+
+canvas.style.position = 'fixed';
+canvas.style.top = '0';
+canvas.style.left = '0';
+canvas.style.width = '100%';
+canvas.style.height = '100%';
+canvas.style.zIndex = '-1';
+canvas.style.pointerEvents = 'none';
+
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+let width, height;
+
+function init() {
+  resize();
+  stars = [];
+  for (let i = 0; i < 150; i++) {
+    stars.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 1.3 + 0.2,
+      alpha: Math.random(),
+      alphaSpeed: 0.005 + Math.random() * 0.01
+    });
+  }
 }
 
-/* Basit yıldızlar */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background:
-    radial-gradient(2px 2px at 10% 20%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 30% 40%, #eee, transparent),
-    radial-gradient(1px 1px at 70% 60%, #ddd, transparent),
-    radial-gradient(2px 2px at 90% 80%, #fff, transparent);
-  background-repeat: repeat;
-  background-size: 100px 100px;
-  z-index: 0;
-  pointer-events: none;
+function resize() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
 }
+
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+  for (let star of stars) {
+    star.alpha += star.alphaSpeed;
+    if (star.alpha <= 0) {
+      star.alpha = 0;
+      star.alphaSpeed = -star.alphaSpeed;
+    } else if (star.alpha >= 1) {
+      star.alpha = 1;
+      star.alphaSpeed = -star.alphaSpeed;
+    }
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+    ctx.fill();
+  }
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', () => {
+  resize();
+  init();
+});
+
+init();
+animate();
