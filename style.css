@@ -1,15 +1,13 @@
-/* Reset and base */
+/* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
-body, html {
+html, body {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: transparent;
   overflow-x: hidden;
-  color: #dcdcdc; /* Matte white for body text */
+  background: transparent;
+  color: #bfbfbf; /* matte white default text */
 }
 
 canvas#background {
@@ -18,120 +16,131 @@ canvas#background {
   width: 100vw;
   height: 100vh;
   z-index: -1;
+  background-color: #0a0a1a;
 }
 
-/* Container flex layout */
+/* Container */
 .container {
   display: flex;
-  min-height: 100vh;
-  background-color: rgba(10,10,20,0.85);
-  box-shadow: inset 0 0 150px 15px rgba(255,255,255,0.02);
+  height: 100vh;
+  background-color: rgba(10, 10, 26, 0.9);
 }
 
-/* Sidebar */
+/* Sidebar: fixed on scroll */
 .sidebar {
   position: sticky;
   top: 0;
   width: 30%;
   min-width: 280px;
-  padding: 2rem 2.5rem;
-  background: rgba(25, 25, 40, 0.95);
+  padding: 2.5rem 2rem;
+  background: rgba(25, 25, 40, 0.97);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-right: 1px solid rgba(255,255,255,0.1);
   user-select: none;
+  height: 100vh;
 }
 
+/* Profile picture */
 .profile-pic {
   width: 100%;
   max-width: 220px;
-  height: auto;
   object-fit: cover;
-  border: 3px solid #bbbbbb;
-  border-radius: 6px; /* Slight rounding but NOT circle */
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 4px #7f8c8daa);
+  border: 3px solid #888;
+  border-radius: 6px; /* Not circle */
+  margin-bottom: 1.8rem;
+  filter: drop-shadow(0 0 6px #999);
   transition: transform 0.3s ease;
 }
 .profile-pic:hover {
   transform: scale(1.05);
 }
 
+/* About Me */
 .about-me {
   text-align: center;
-}
-
-.about-me h2 {
-  font-size: 2.25rem;
-  color: #e0e0e0; /* Bright but a bit matte white */
-  margin-bottom: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-shadow: 0 0 6px rgba(255,255,255,0.25);
-}
-
-.about-me p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #bfbfbf; /* matte white */
-  font-weight: 400;
   max-width: 320px;
-  margin: 0 auto;
+}
+.about-me h2 {
+  font-size: 2.4rem;
+  color: #dedede; /* slightly matte bright white */
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  user-select: text;
+}
+.about-me p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #a6a6a6; /* matte white */
+  font-weight: 400;
   letter-spacing: 0.01em;
+  user-select: text;
 }
 
-/* Main Content */
-.content {
+/* Main content */
+.main-content {
   width: 70%;
+  height: 100vh;
+  overflow-y: scroll;
   padding: 3rem 4rem;
-  overflow-y: auto;
   color: #ccc;
   scroll-behavior: smooth;
 }
 
-/* Sections */
-.content section {
+/* Section styling */
+.main-content section {
   margin-bottom: 3.5rem;
-}
-
-.content h2 {
-  font-size: 2rem;
-  color: #ffffff; /* bright white for headings */
-  font-weight: 700;
-  border-bottom: 2px solid #ffffff44;
-  padding-bottom: 0.4rem;
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.05em;
   user-select: text;
 }
 
-.content h3 {
+/* Headings */
+.main-content h2 {
+  font-size: 2.2rem;
+  color: #ffffff; /* bright white */
+  font-weight: 800;
+  border-bottom: 2px solid #ffffff44;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.main-content h3 {
   font-size: 1.3rem;
   margin-top: 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
   font-weight: 600;
   color: #f5f5f5;
   letter-spacing: 0.02em;
 }
 
-.content p, .content ul {
+/* Paragraphs and lists */
+.main-content p, .main-content ul {
   font-size: 1.15rem;
   line-height: 1.85;
   color: #cfcfcf; /* matte white */
   font-weight: 400;
 }
-
-.content ul {
+.main-content ul {
   list-style-type: disc;
   margin-left: 1.8rem;
 }
-
-.content ul li {
+.main-content ul li {
   margin-bottom: 0.6rem;
-  user-select: text;
 }
 
-.content p {
-  user-select: text;
+/* Scrollbar styling for modern browsers */
+.main-content::-webkit-scrollbar {
+  width: 10px;
+}
+.main-content::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+}
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.4);
 }
