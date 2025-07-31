@@ -1,15 +1,15 @@
-/* Temel ve responsive ayarlar */
+/* Temel reset ve kutu model */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body, html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #eee;
-  background-color: #0b121a; /* koyu mavi-siyah arası */
+  background: #0b121a; /* Çok koyu mavi-siyah arası */
+  color: #e6eaf5;
   overflow-x: hidden;
   position: relative;
 }
@@ -17,147 +17,116 @@ body, html {
 /* Arka plan canvas tam ekran */
 #background {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: -1;
   background: #0b121a;
 }
 
-/* Genel konteyner */
+/* Container: flex ile yanyana */
 .container {
-  display: flex;
   max-width: 1200px;
   margin: 60px auto;
-  background: rgba(20, 29, 42, 0.85);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-  min-height: 600px;
-  padding: 30px;
+  background: rgba(15, 23, 40, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+  display: flex;
+  min-height: 700px;
+  padding: 40px;
 }
 
-/* Sidebar: Sol kısım */
+/* Sol sidebar: Fotoğraf */
 .sidebar {
   width: 30%;
-  padding-right: 30px;
-  border-right: 1.5px solid #2c3e50;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #fff;
+  padding-right: 40px;
+  border-right: 2px solid #2a3a56;
 }
 
-/* Profil fotoğrafı */
 .profile-photo {
-  width: 100%;
-  max-width: 260px;
-  height: auto;
-  object-fit: contain; /* kırpma yok, orijinal boyut korunur */
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(100, 120, 160, 0.5);
-  margin-bottom: 25px;
+  max-width: 100%;
+  max-height: 450px;
+  object-fit: contain; /* kırpma yok */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(50, 75, 140, 0.8);
   transition: transform 0.3s ease;
 }
 .profile-photo:hover {
   transform: scale(1.05);
-}
-
-/* Sidebar bölümleri */
-.sidebar section {
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.sidebar h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #a8c0ff; /* soft mavi */
-  margin-bottom: 12px;
-  border-bottom: 2px solid #a8c0ff;
-  padding-bottom: 6px;
-  text-align: center;
-}
-
-.sidebar p, 
-.sidebar ul {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #d0d8ffcc;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.sidebar ul li {
-  padding: 6px 0;
-  border-bottom: 1px solid #22303c;
-  font-weight: 500;
+  box-shadow: 0 15px 35px rgba(100, 120, 255, 0.85);
 }
 
 /* Sağ ana içerik */
 .main-content {
   width: 70%;
-  padding-left: 30px;
-  color: #f0f4ff;
+  padding-left: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  gap: 40px;
+  color: #cbd6f7;
 }
 
-/* Ana içerik bölümleri */
-.main-content section {
-  margin-bottom: 40px;
-}
-
-.main-content h2 {
-  font-size: 2rem;
+/* Başlıklar */
+h2 {
+  font-size: 2.2rem;
+  color: #d0d8ff;
   font-weight: 800;
-  color: #79a7ff;
-  border-bottom: 3px solid #79a7ff;
-  padding-bottom: 8px;
   margin-bottom: 18px;
+  border-bottom: 3px solid #5577ff;
+  padding-bottom: 8px;
 }
 
-.main-content h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #aad1ff;
-  margin-bottom: 10px;
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #9bb2ff;
+  margin-bottom: 12px;
 }
 
-.main-content ul {
-  list-style: none;
-  padding-left: 0;
-  font-size: 1.05rem;
+/* Paragraflar */
+p {
+  font-size: 1.1rem;
   line-height: 1.6;
-  color: #cdd9ffcc;
+  color: #d4daffcc;
+  max-width: 900px;
 }
 
-.main-content ul li {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #2f4b89;
-  padding-bottom: 6px;
+/* Listeler */
+ul {
+  list-style: none;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #c8d0ffcc;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #2a3a56;
+  font-weight: 500;
 }
 
 /* Linkler */
 a {
-  color: #79a7ff;
+  color: #7e99ff;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-weight: 600;
 }
+
 a:hover {
-  color: #c0d6ff;
+  color: #a8bfff;
   text-decoration: underline;
 }
 
 /* Responsive */
-@media screen and (max-width: 900px) {
+@media (max-width: 900px) {
   .container {
     flex-direction: column;
     padding: 20px;
+    min-height: auto;
   }
   .sidebar, .main-content {
     width: 100%;
@@ -165,9 +134,6 @@ a:hover {
     border: none;
   }
   .sidebar {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
-
-
-
