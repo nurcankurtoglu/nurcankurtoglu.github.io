@@ -1,4 +1,4 @@
-// Lightweight professional animated starry background
+// Hafif, profesyonel ve performans dostu yıldız animasyonu arka plan
 
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
@@ -20,7 +20,4 @@ function resize() {
   canvas.width = width;
   canvas.height = height;
 }
-window.addEventListener('resize', resize);
-resize();
-
-class Star {
+window.addEventListener('resize', resize
