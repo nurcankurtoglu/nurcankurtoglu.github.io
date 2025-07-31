@@ -1,48 +1,88 @@
-/* Genel Gövde Ayarları */
+/* Genel Gövde */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;  /* Açık gri-mavi ton */
-  color: #2c3e50;             /* Koyu mavi-gri metin */
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #f0f0f5;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Ana Konteyner */
 .container {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 40px 35px;
-  background-color: #ffffff;  /* Saf beyaz */
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  max-width: 850px;
+  width: 90%;
+  padding: 50px 40px;
   text-align: center;
+  color: #fff;
+  transition: transform 0.4s ease;
+}
+.container:hover {
+  transform: scale(1.02);
 }
 
 /* Profil Fotoğrafı */
 .profile-photo {
   width: 180px;
   height: 180px;
-  border-radius: 20%;
+  border-radius: 25%;  /* Hafif oval */
   object-fit: cover;
-  margin: 0 auto 35px auto;
-  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.2);
-  transition: transform 0.3s ease;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
 }
 .profile-photo:hover {
-  transform: scale(1.05);
+  box-shadow: 0 25px 60px rgba(255, 255, 255, 0.5);
 }
 
 /* Başlıklar */
 h1 {
-  font-weight: 700;
-  font-size: 2.8rem;
+  font-weight: 800;
+  font-size: 3rem;
   margin-bottom: 12px;
-  color: #1a2a42; /* Daha koyu ve ciddi */
-  letter-spacing: 1.2px;
+  letter-spacing: 1.6px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 h2 {
-  color: #34495e;  /* Orta koyulukta mavi-gri */
-  font-weight: 600;
-  margin: 50px 0
+  font-weight: 700;
+  font-size: 1.9rem;
+  margin: 50px 0 20px 0;
+  border-bottom: 3px solid #a18cd1;
+  padding-bottom: 8px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
 
+/* Listeler */
+ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  text-align: left;
+}
+
+li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 16px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #dcd6f7;
+  transition: color 0.3s ease;
+}
+
+li::before {
+  content: "→";
+  position: absolute;
+  left:
