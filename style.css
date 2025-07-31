@@ -5,128 +5,100 @@
   box-sizing: border-box;
 }
 
-/* Body ve genel font */
+/* Fonts and base colors */
 body, html {
   height: 100%;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #f1f1f1;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  color: #eee;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* Ana container */
-.container {
-  max-width: 1100px;
-  margin: 60px auto;
-  background: rgba(20, 30, 45, 0.85);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-  display: flex;
-  min-height: 700px;
-  padding: 40px 50px;
+/* Header with fixed photo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 30, 45, 0.95);
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+  z-index: 9999;
 }
 
-/* Sol sidebar */
-.sidebar {
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid rgba(255,255,255,0.15);
-  padding-right: 30px;
-}
-
-/* Profil fotoğraf */
-.profile-photo {
-  max-width: 100%;
-  max-height: 480px;
+header img {
+  max-height: 120px;
+  width: auto;
+  border-radius: 0; /* No rounding as requested */
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-  transition: transform 0.3s ease;
+  vertical-align: middle;
 }
 
-.profile-photo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(100, 130, 255, 0.8);
+/* Main content below header */
+main {
+  padding: 160px 40px 80px 40px; /* Padding top to avoid photo overlap */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* Sağ main içerik */
-.main-content {
-  width: 70%;
-  padding-left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
+/* Section styling */
+section {
+  margin-bottom: 50px;
 }
 
-/* Başlıklar - tutarlı ve zarif */
 h2 {
-  font-family: 'Lora', serif;
   font-weight: 700;
-  font-size: 2.2rem;
-  color: #cbd4f7;
-  border-bottom: 2.5px solid #8899ff;
-  padding-bottom: 6px;
-  margin-bottom: 14px;
-  letter-spacing: 0.03em;
+  font-size: 2.4rem;
+  margin-bottom: 18px;
+  color: #f0f0f0;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 8px;
+  letter-spacing: 1px;
 }
 
-/* Alt başlıklar */
 h3 {
-  font-family: 'Poppins', sans-serif;
+  margin-top: 15px;
   font-weight: 600;
-  font-size: 1.4rem;
-  color: #a3b2ff;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #dce6f0;
 }
 
-/* Paragraflar */
-p {
-  font-size: 1.05rem;
-  color: #dde3f7cc;
-  max-width: 100%;
-  font-weight: 400;
+p, li {
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #d0d7de;
+  margin-bottom: 12px;
 }
 
-/* Listeler */
 ul {
-  list-style-type: none;
-  color: #bec8f9cc;
+  padding-left: 20px;
+  list-style: disc;
+  color: #cfd8e9;
 }
 
-ul li {
-  padding: 6px 0;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Linkler */
+/* Links styling */
 a {
-  color: #8aa7ff;
-  font-weight: 600;
+  color: #4da6ff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #bbc9ff;
+  color: #82c0ff;
   text-decoration: underline;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    padding: 30px 20px;
-    min-height: auto;
+@media (max-width: 768px) {
+  main {
+    padding: 180px 20px 40px 20px;
   }
-  .sidebar, .main-content {
-    width: 100%;
-    padding: 0;
-    border: none;
+  h2 {
+    font-size: 1.8rem;
   }
-  .sidebar {
-    margin-bottom: 30px;
+  h3 {
+    font-size: 1.3rem;
   }
 }
