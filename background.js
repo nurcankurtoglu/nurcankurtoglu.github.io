@@ -1,107 +1,159 @@
-const canvas = document.getElementById('background-canvas');
+const canvas = document.getElementById('auroraCanvas');
 const ctx = canvas.getContext('2d');
 
-let W, H;
+let w, h;
 function resize() {
-  W = window.innerWidth;
-  H = window.innerHeight;
-  canvas.width = W;
-  canvas.height = H;
+  w = window.innerWidth;
+  h = window.innerHeight;
+  canvas.width = w;
+  canvas.height = h;
 }
 resize();
 window.addEventListener('resize', resize);
 
-/* Aurora dalga objesi */
-class Aurora {
-  constructor() {
-    this.reset();
+// Kuzey ışıkları bandı sınıfı
+class AuroraBand {
+  constructor(color, speed, amplitude, yBase) {
+    this.color = color;
+    this.speed = speed;
+    this.amplitude = amplitude;
+    this.yBase = yBase;
+    this.offset = 0;
   }
-  reset() {
-    this.x = Math.random() * W;
-    this.y = H + Math.random() * 200;
-    this.width = 150 + Math.random() * 150;
-    this.height = 400 + Math.random() * 400;
-    this.amplitude = 15 + Math.random() * 20;
-    this.phase = Math.random() * Math.PI * 2;
-    this.speed = 0.4 + Math.random() * 0.8;
-    this.color = `rgba(140, 120, 255, 0.15)`;
-  }
+
   update() {
-    this.y -= this.speed;
-    if (this.y + this.height < 0) this.reset();
-    this.phase += 0.015;
+    this.offset += this.speed;
   }
-  draw() {
-    const grad = ctx.createLinearGradient(this.x, this.y, this.x + this.width, this.y + this.height);
-    grad.addColorStop(0, 'rgba(140, 120, 255, 0)');
-    grad.addColorStop(0.3, this.color);
-    grad.addColorStop(0.7, 'rgba(180, 160, 255, 0.3)');
-    grad.addColorStop(1, 'rgba(140, 120, 255, 0)');
-    ctx.fillStyle = grad;
+
+  draw(ctx) {
+    const gradient = ctx.createLinearGradient(0, this.yBase - this.amplitude, 0, this.yBase + this.amplitude);
+    gradient.addColorStop(0, 'rgba(100, 200, 255, 0.3)');
+    gradient.addColorStop(0.5, this.color);
+    gradient.addColorStop(1, 'rgba(100, 200, 255, 0)');
+
+    ctx.fillStyle = gradient;
+
     ctx.beginPath();
-    ctx.moveTo(this.x, this.y);
-    ctx.bezierCurveTo(
-      this.x + this.amplitude * Math.sin(this.phase), this.y + this.height / 3,
-      this.x - this.amplitude * Math.sin(this.phase), this.y + (2 * this.height) / 3,
-      this.x, this.y + this.height
-    );
+    const waveCount = 5;
+    const waveLength = w / waveCount;
+    ctx.moveTo(0, h);
+    for (let x = 0; x <= w; x += 10) {
+      let y = this.yBase + Math.sin((x / waveLength + this.offset) * Math.PI * 2) * this.amplitude;
+      ctx.lineTo(x, y);
+    }
+    ctx.lineTo(w, h);
     ctx.closePath();
     ctx.fill();
   }
 }
 
-/* Yıldız objesi */
+// Yıldız sınıfı
 class Star {
   constructor() {
     this.reset();
   }
   reset() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.radius = Math.random() * 1.3 + 0.3;
-    this.brightness = 0.6 + Math.random() * 0.4;
-    this.twinkleSpeed = 0.02 + Math.random() * 0.03;
-    this.phase = Math.random() * Math.PI * 2;
+    this.x = Math.random() * w;
+    this.y = Math.random() * h * 0.8;
+    this.size = Math.random() * 1.5 + 0.5;
+    this.alpha = Math.random() * 0.8 + 0.2;
+    this.alphaChange = (Math.random() * 0.01) + 0.002;
   }
   update() {
-    this.phase += this.twinkleSpeed;
+    this.alpha += this.alphaChange;
+    if (this.alpha > 1 || this.alpha < 0.3) this.alphaChange *= -1;
   }
-  draw() {
-    const alpha = this.brightness * (0.5 + 0.5 * Math.sin(this.phase));
-    ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
+  draw(ctx) {
+    ctx.save();
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+    ctx.shadowColor = 'white';
+    ctx.shadowBlur = 5;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
+    ctx.restore();
   }
 }
 
-const auroras = [];
-const stars = [];
-const AURORA_COUNT = 20;
-const STAR_COUNT = 120;
+// Kayan yıldız sınıfı
+class ShootingStar {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h * 0.5;
+    this.len = Math.random() * 100 + 50;
+    this.speed = Math.random() * 10 + 8;
+    this.size = Math.random() * 1.5 + 0.5;
+    this.waitTime = 0;
+    this.alpha = 0;
+    this.active = false;
+  }
+  update() {
+    if (this.active) {
+      this.x += this.speed;
+      this.y += this.speed / 3;
+      this.alpha -= 0.02;
+      if (this.alpha <= 0) this.reset();
+    } else {
+      this.waitTime++;
+      if (this.waitTime > 100 + Math.random() * 300) {
+        this.active = true;
+        this.alpha = 1;
+      }
+    }
+  }
+  draw(ctx) {
+    if (!this.active) return;
+    ctx.save();
+    ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
+    ctx.lineWidth = this.size;
+    ctx.shadowColor = 'white';
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.moveTo(this.x, this.y);
+    ctx.lineTo(this.x - this.len, this.y - this.len / 3);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
 
-for (let i = 0; i < AURORA_COUNT; i++) auroras.push(new Aurora());
-for (let i = 0; i < STAR_COUNT; i++) stars.push(new Star());
+// Aurora ve yıldız objeleri oluştur
+const auroraBands = [
+  new AuroraBand('rgba(100, 255, 220, 0.5)', 0.002, 80, h * 0.65),
+  new AuroraBand('rgba(150, 200, 255, 0.3)', 0.0015, 50, h * 0.7),
+  new AuroraBand('rgba(200, 180, 255, 0.4)', 0.0018, 60, h * 0.75),
+];
+
+const stars = [];
+for (let i = 0; i < 200; i++) stars.push(new Star());
+
+const shootingStars = [];
+for (let i = 0; i < 3; i++) shootingStars.push(new ShootingStar());
 
 function animate() {
-  ctx.clearRect(0, 0, W, H);
+  ctx.clearRect(0, 0, w, h);
 
-  // Gece gökyüzü degrade arka plan
-  const bgGradient = ctx.createLinearGradient(0, 0, 0, H);
-  bgGradient.addColorStop(0, '#0a001f');
-  bgGradient.addColorStop(1, '#020006');
-  ctx.fillStyle = bgGradient;
-  ctx.fillRect(0, 0, W, H);
-
-  auroras.forEach((a) => {
-    a.update();
-    a.draw();
-  });
-  stars.forEach((s) => {
+  // Yıldızları çiz
+  stars.forEach(s => {
     s.update();
-    s.draw();
+    s.draw(ctx);
+  });
+
+  // Kayan yıldızları çiz
+  shootingStars.forEach(s => {
+    s.update();
+    s.draw(ctx);
+  });
+
+  // Kuzey ışıkları bantlarını çiz (en sona, önde olsun diye)
+  auroraBands.forEach(band => {
+    band.update();
+    band.draw(ctx);
   });
 
   requestAnimationFrame(animate);
 }
+
 animate();
