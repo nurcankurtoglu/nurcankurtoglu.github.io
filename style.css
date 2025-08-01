@@ -1,75 +1,88 @@
+/* Genel Reset ve Temel Stil */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body, html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-  overflow-x: hidden;
+  color: #e0e0e0;
   background: transparent;
-}
-
-canvas#stars-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.container {
-  display: flex;
-  min-height: 100vh;
-  padding: 60px 40px;
-}
-
-.left-panel {
-  width: 35%;
-  position: sticky;
-  top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-right: 30px;
-}
-
-.profile-pic {
-  width: 220px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.about-me {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.right-panel {
-  width: 65%;
-  padding-left: 40px;
-}
-
-section {
-  margin-bottom: 80px;
-}
-
-h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
-  color: #ffffff;
+  overflow-x: hidden;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
   color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-p {
-  font-size: 18px;
+p, li {
+  color: #d0d0d0;
   line-height: 1.6;
-  color: #dddddd;
+  font-size: 1rem;
+}
+
+/* Ana Konteyner */
+.container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Sol Panel */
+.sidebar {
+  width: 30%;
+  min-width: 250px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+/* Sağ Panel */
+.main {
+  margin-left: 30%;
+  padding: 2rem;
+  width: 70%;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+a {
+  color: #87cefa;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+  }
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
 }
