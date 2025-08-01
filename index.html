@@ -7,44 +7,89 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Background Canvas -->
+  <!-- Dinamik arka plan canvas -->
   <canvas id="background-canvas"></canvas>
 
   <div class="container">
-    <!-- Left Fixed Sidebar -->
-    <aside class="sidebar">
-      <img src="Kurumsal Fotoğrafım.jpg" alt="Profile Photo" class="profile-photo" />
+    <!-- Sol sabit sidebar -->
+    <aside class="sidebar" aria-label="Profile Sidebar">
+      <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu Profile Photo" class="profile-photo" />
       <h2>About Me</h2>
       <p>
-        My analytical mindset has always aligned strongly with the field of Econometrics. I excel in interpreting real-world data and contributing to projects with a responsible, solution-oriented attitude. I am driven by self-development and idealism.
+        During my university studies, I chose Econometrics because it perfectly aligns with my analytical mindset. Analyzing and interpreting real-world data has always been my strongest skill both academically and professionally. I approach my responsibilities with dedication, delivering results with a solution-oriented attitude. I am a committed and idealistic person, continually prioritizing personal development.
       </p>
     </aside>
 
-    <!-- Right Scrollable Main Content -->
-    <main class="main-content" tabindex="0">
+    <!-- Sağ panel - scroll ile hareket eden içerik -->
+    <main class="main-content" tabindex="0" aria-label="Main Content">
+      <section>
+        <h1>Education</h1>
+        <ul>
+          <li>Şehit Edip Zengin Anatolian High School (2016 - 2020)</li>
+          <li>Marmara University, Econometrics (2021 - 2025)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Experience & Skills</h1>
+        <ul>
+          <li>R (Tidyverse, Time Series Analysis)</li>
+          <li>SQL & Database Querying</li>
+          <li>Advanced Microsoft Excel</li>
+          <li>Econometric Modeling with EViews</li>
+          <li>Google Analytics, Meta Business Suite</li>
+          <li>Team Leadership & Project Completion</li>
+          <li>Independent Responsibility Taking</li>
+          <li>Creative Problem Solving</li>
+          <li>High Social Responsibility Awareness</li>
+          <li>Field Research Aptitude</li>
+          <li>Idealistic & Innovative Personality</li>
+        </ul>
+      </section>
+
       <section>
         <h1>My Projects</h1>
 
-        <h2>Academic Works in Econometrics</h2>
+        <h2>Econometric Projects</h2>
         <ul>
-          <li>Phillips Curve Analysis in Turkey (EViews, 1980–2023)</li>
-          <li>Phillips Curve Research Paper</li>
-          <li>Time Series Econometrics Analysis: Unemployment-Inflation Relationship</li>
-          <li>Time Series Econometrics Analysis: BIST100-BOG Relationship</li>
-          <li>Cluster Analysis</li>
+          <li>
+            Turkey’s Phillips Curve Analysis (EViews, 1980-2023)
+            <ul>
+              <li><a href="Phillips Eğrisinin Geçerlilik Sınaması-Türkiye.pdf" target="_blank" rel="noopener noreferrer">Phillips Curve Validity Test - Turkey</a></li>
+              <li><a href="Phillips Eğrisinin Geçerliliği Makale.pdf" target="_blank" rel="noopener noreferrer">Phillips Curve Research Paper</a></li>
+            </ul>
+          </li>
+          <li>
+            Time Series Econometrics Analysis: Unemployment-Inflation Relationship
+            <ul>
+              <li><a href="Zaman Serisi Ekonometrisi.pdf" target="_blank" rel="noopener noreferrer">Full Analysis PDF</a></li>
+              <li><a href="Zaman Serisi Ekonometrisi-.pdf" target="_blank" rel="noopener noreferrer">Supplementary Document</a></li>
+            </ul>
+          </li>
+          <li>
+            BIST100-BOG Relationship Analysis
+            <ul>
+              <li><a href="Zaman Serisi Ekonometrisi.pdf" target="_blank" rel="noopener noreferrer">Analysis Document</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="Kümeleme Analizi-.pdf" target="_blank" rel="noopener noreferrer">Cluster Analysis</a>
+          </li>
         </ul>
 
-        <h2>Marketing and Media Projects</h2>
+        <h2>Marketing & Media Projects</h2>
         <ul>
-          <li>Marketing Law Project</li>
-          <li>Advertising and Marketing Project</li>
-          <li>Social Media Literacy & Marketing Strategies Project</li>
-          <li>New Media and Digital Transformation Campaign Project</li>
+          <li><a href="-Pazarlama Hukuku Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">Marketing Law Project</a></li>
+          <li><a href="-Reklamcılık ve Pazarlama Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">Advertising and Marketing Project</a></li>
+          <li><a href="-Sosyal Medya Okuryazarlığı & Pazarlama Stratejileri Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">Social Media Literacy & Marketing Strategies Project</a></li>
+          <li><a href="-Yeni Medya ve Dijital Dönüşüm Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">New Media and Digital Transformation Campaign Project</a></li>
         </ul>
+      </section>
 
-        <h2>Contact</h2>
+      <section>
+        <h1>Contact</h1>
         <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank" rel="noopener">linkedin.com/in/nurcankurtoglu</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank" rel="noopener noreferrer">linkedin.com/in/nurcankurtoglu</a></p>
         <p>Location: Istanbul, Turkey</p>
       </section>
     </main>
