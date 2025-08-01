@@ -34,4 +34,30 @@ class AuroraParticle {
         else if (this.y > height + this.radius) this.y = -this.radius;
     }
     draw() {
-        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+        gradient.addColorStop(0, this.color);
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+const particlesCount = 40;
+const particles = [];
+
+for(let i=0; i < particlesCount; i++) {
+    particles.push(new AuroraParticle());
+}
+
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+    for(let p of particles) {
+        p.update();
+        p.draw();
+    }
+    requestAnimationFrame(animate);
+}
+
+animate();
