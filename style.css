@@ -1,161 +1,194 @@
-/* Temel sıfırlamalar */
+/* Reset & temel stiller */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
 }
 
 body, html {
-  margin: 0;
-  padding: 0;
   height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000000;
-  color: #f0f0f0;
-  overflow: hidden; /* yatay kaydırmayı engelle */
+  overflow: hidden; /* Sayfa taşma kaydırma kontrolü */
+  background-color: #000014; /* fallback koyu gece rengi */
 }
 
-/* Dinamik arka plan canvas */
+/* Arka plan canvas tam ekran */
 #background-canvas {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none;
+  z-index: -10;
+  background: radial-gradient(ellipse at center, #0b1a3d 0%, #000010 100%);
 }
 
-/* Ana container flex, tam ekran */
+/* Ana container: 2 sütun, flexbox */
 .container {
   display: flex;
   height: 100vh;
-  position: relative;
-  z-index: 1;
+  width: 100vw;
 }
 
-/* Sol sidebar - sabit */
+/* --- Sol panel (sidebar) --- */
 .sidebar {
-  width: 33.33%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
+  position: fixed; /* hep görünür */
   left: 0;
-  background: rgba(15, 15, 25, 0.85);
-  padding: 30px 25px;
-  box-shadow: 3px 0 15px rgba(0,0,0,0.8);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  top: 0;
+  width: 33.3333vw; /* 1/3 ekran genişliği */
+  height: 100vh;
+  background: rgba(12, 12, 40, 0.85);
+  padding: 40px 30px;
+  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* Profil fotoğrafı */
-.profile-image {
-  width: 100%;
+.profile-photo {
+  width: 70%;
+  max-width: 250px;
   height: auto;
-  border-radius: 6px;
-  margin-bottom: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
   object-fit: cover;
-  box-shadow: 0 0 20px #61dafbaa;
+  box-shadow: 0 0 15px 3px #62a1f8;
+  transition: transform 0.3s ease;
+}
+.profile-photo:hover {
+  transform: scale(1.05);
 }
 
-/* About Me başlığı ve paragraf */
-.about-me h2 {
-  margin-top: 0;
+/* Hakkımda Başlık */
+.sidebar h2 {
+  font-size: 1.9rem;
   margin-bottom: 15px;
-  color: #d0d8e8;
-  border-bottom: 2px solid #61dafb;
-  padding-bottom: 8px;
-  font-weight: 600;
-  font-size: 1.6em;
+  color: #e0f7ff;
+  text-shadow: 0 0 8px #62a1f8;
 }
 
-.about-me p {
-  color: #c8d0e8cc;
-  font-size: 1em;
-  line-height: 1.6;
+/* Hakkımda paragraf */
+.sidebar p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #c5d8ea;
+  user-select: text;
+  padding: 0 10px;
+  letter-spacing: 0.03em;
 }
 
-/* Sağ içerik */
-.content {
-  margin-left: 33.33%;
-  width: 66.67%;
+/* --- Sağ panel (main content) --- */
+.main-content {
+  margin-left: 33.3333vw;
+  width: 66.6666vw;
   height: 100vh;
   overflow-y: auto;
   padding: 50px 60px;
-  background-color: rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 150px rgba(0,0,0,0.7);
+  background: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: #4e82c5 #0b1a3d;
+}
+
+/* Scrollbar (Firefox) */
+.main-content {
+  scrollbar-width: thin;
+  scrollbar-color: #62a1f8 transparent;
+}
+
+/* Scrollbar (Chrome, Edge, Safari) */
+.main-content::-webkit-scrollbar {
+  width: 10px;
+}
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #62a1f8;
+  border-radius: 10px;
+  border: 3px solid transparent;
 }
 
 /* Başlıklar */
-.content h2, .content h3 {
-  color: #b0c4decc;
-  border-bottom: 2px solid #61dafb88;
-  padding-bottom: 8px;
-  margin-top: 0;
-  font-weight: 700;
-  font-size: 2em;
+.main-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #b1dbff;
+  text-shadow: 0 0 15px #62a1f8;
+  border-bottom: 2px solid #62a1f8;
+  padding-bottom: 10px;
+  max-width: fit-content;
+  user-select: none;
+}
+
+.main-content h2 {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  color: #9ecfff;
+  text-shadow: 0 0 8px #4d88ff;
+  user-select: none;
 }
 
 /* Liste */
-.content ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 12px;
+.main-content ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #d0dbf5;
+  user-select: text;
 }
 
-.content ul li {
+.main-content ul li {
   margin-bottom: 12px;
-  font-size: 1.1em;
-  color: #e3eaf3cc;
+  transition: color 0.3s ease;
+}
+.main-content ul li:hover {
+  color: #82caff;
+  cursor: default;
 }
 
 /* Linkler */
-.content a {
-  color: #61dafb;
+a {
+  color: #66aaff;
   text-decoration: none;
-  font-weight: 600;
+  transition: color 0.3s ease;
+}
+a:hover, a:focus {
+  color: #a0d8ff;
+  outline: none;
 }
 
-.content a:hover {
-  text-decoration: underline;
-}
-
-/* Scrollbar - Webkit */
-.content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.content::-webkit-scrollbar-thumb {
-  background-color: #61dafb88;
-  border-radius: 20px;
-}
-
-/* Responsive Mobil */
-@media screen and (max-width: 900px) {
-  body, html {
-    overflow: auto;
-  }
+/* Responsive - mobilde yukarı aşağı sıralı */
+@media (max-width: 900px) {
   .container {
     flex-direction: column;
-    height: auto;
   }
   .sidebar {
     position: relative;
     width: 100%;
     height: auto;
-    box-shadow: none;
-    padding: 20px 15px;
+    padding: 30px 20px;
   }
-  .content {
+  .profile-photo {
+    width: 40vw;
+    max-width: 200px;
+  }
+  .main-content {
     margin-left: 0;
     width: 100%;
     height: auto;
-    padding: 20px 15px;
+    padding: 20px 25px 40px 25px;
   }
-  .about-me p {
-    font-size: 0.9em;
+  .main-content h1 {
+    font-size: 2.2rem;
+  }
+  .main-content h2 {
+    font-size: 1.4rem;
   }
 }
