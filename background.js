@@ -1,106 +1,99 @@
 const canvas = document.getElementById('background-canvas');
 const ctx = canvas.getContext('2d');
 
-let width, height;
-
+let W, H;
 function resize() {
-  width = window.innerWidth;
-  height = window.innerHeight;
-  canvas.width = width;
-  canvas.height = height;
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = W;
+  canvas.height = H;
 }
-
 resize();
-
 window.addEventListener('resize', resize);
 
-class AuroraParticle {
+class Aurora {
   constructor() {
     this.reset();
   }
   reset() {
-    this.x = Math.random() * width;
-    this.y = Math.random() * height;
-    this.radius = 70 + Math.random() * 90;
-    this.color = `hsla(${160 + Math.random() * 80}, 80%, 60%, 0.12)`;
-    this.speedY = 0.1 + Math.random() * 0.3;
-    this.amplitude = 100 + Math.random() * 150;
-    this.phase = Math.random() * 2 * Math.PI;
+    this.x = Math.random() * W;
+    this.y = H + Math.random() * 200;
+    this.width = 100 + Math.random() * 150;
+    this.height = 400 + Math.random() * 300;
+    this.speed = 0.3 + Math.random() * 0.4;
+    this.amplitude = 20 + Math.random() * 30;
+    this.phase = Math.random() * Math.PI * 2;
+    this.color = `hsla(${160 + Math.random() * 40}, 90%, 70%, 0.15)`;
   }
   update() {
-    this.y -= this.speedY;
-    if (this.y < -this.radius) this.y = height + this.radius;
-    this.phase += 0.005;
-    this.x += Math.sin(this.phase) * 0.5;
+    this.y -= this.speed;
+    if (this.y + this.height < 0) this.reset();
+    this.phase += 0.01;
   }
   draw() {
-    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-    gradient.addColorStop(0, this.color);
-    gradient.addColorStop(1, 'transparent');
-    ctx.fillStyle = gradient;
+    let grad = ctx.createLinearGradient(this.x, this.y, this.x + this.width, this.y + this.height);
+    grad.addColorStop(0, 'rgba(50, 200, 180, 0)');
+    grad.addColorStop(0.4, this.color);
+    grad.addColorStop(0.7, 'rgba(100, 255, 230, 0.3)');
+    grad.addColorStop(1, 'rgba(50, 200, 180, 0)');
+    ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.moveTo(this.x, this.y);
+    ctx.bezierCurveTo(
+      this.x + this.amplitude * Math.sin(this.phase), this.y + this.height / 3,
+      this.x - this.amplitude * Math.sin(this.phase), this.y + 2 * this.height / 3,
+      this.x, this.y + this.height
+    );
+    ctx.closePath();
     ctx.fill();
   }
 }
 
-class StarParticle {
+class Star {
   constructor() {
     this.reset();
   }
   reset() {
-    this.x = Math.random() * width;
-    this.y = Math.random() * height;
-    this.radius = Math.random() * 1.5 + 0.5;
-    this.brightness = 0.5 + Math.random() * 0.5;
-    this.twinkleSpeed = 0.02 + Math.random() * 0.02;
-    this.twinklePhase = Math.random() * 2 * Math.PI;
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.radius = Math.random() * 1.3 + 0.3;
+    this.brightness = 0.6 + Math.random() * 0.4;
+    this.twinkleSpeed = 0.02 + Math.random() * 0.03;
+    this.phase = Math.random() * Math.PI * 2;
   }
   update() {
-    this.twinklePhase += this.twinkleSpeed;
+    this.phase += this.twinkleSpeed;
   }
   draw() {
-    const alpha = 0.5 + Math.sin(this.twinklePhase) * 0.5;
-    ctx.fillStyle = `rgba(255, 255, 255, ${alpha * this.brightness})`;
+    const alpha = this.brightness * (0.5 + 0.5 * Math.sin(this.phase));
+    ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
   }
 }
 
-const auroraParticles = [];
-const starParticles = [];
-const AURORA_COUNT = 30;
-const STAR_COUNT = 100;
+const auroras = [];
+const stars = [];
+const AURORA_COUNT = 20;
+const STAR_COUNT = 120;
 
-for (let i = 0; i < AURORA_COUNT; i++) {
-  auroraParticles.push(new AuroraParticle());
-}
-for (let i = 0; i < STAR_COUNT; i++) {
-  starParticles.push(new StarParticle());
-}
+for (let i = 0; i < AURORA_COUNT; i++) auroras.push(new Aurora());
+for (let i = 0; i < STAR_COUNT; i++) stars.push(new Star());
 
 function animate() {
-  ctx.clearRect(0, 0, width, height);
-  
-  // Background Gradient
-  const gradient = ctx.createLinearGradient(0, 0, 0, height);
-  gradient.addColorStop(0, '#0a0a1a');
-  gradient.addColorStop(1, '#1b113a');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
+  ctx.clearRect(0, 0, W, H);
 
-  // Draw Aurora & Stars
-  auroraParticles.forEach(p => {
-    p.update();
-    p.draw();
-  });
-  starParticles.forEach(s => {
-    s.update();
-    s.draw();
-  });
+  // Background gradient night sky
+  let bgGradient = ctx.createLinearGradient(0, 0, 0, H);
+  bgGradient.addColorStop(0, '#010117');
+  bgGradient.addColorStop(1, '#00000a');
+  ctx.fillStyle = bgGradient;
+  ctx.fillRect(0, 0, W, H);
+
+  auroras.forEach(a => { a.update(); a.draw(); });
+  stars.forEach(s => { s.update(); s.draw(); });
 
   requestAnimationFrame(animate);
 }
-
 animate();
