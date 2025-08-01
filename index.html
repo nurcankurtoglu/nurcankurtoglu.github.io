@@ -1,100 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nurcan Kurtoğlu Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nurcan Kurtoğlu | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Dinamik arka plan canvas -->
-  <canvas id="background-canvas"></canvas>
 
-  <div class="container">
-    <!-- Sol sabit sidebar -->
-    <aside class="sidebar" aria-label="Profile Sidebar">
-      <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu Profile Photo" class="profile-photo" />
+<!-- Arka plan canvas -->
+<canvas id="background"></canvas>
+
+<div class="container">
+
+  <!-- Sol panel - sabit -->
+  <aside class="sidebar">
+    <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu" class="profile-photo" />
+    <section class="about-me">
       <h2>About Me</h2>
       <p>
-        During my university studies, I chose Econometrics because it perfectly aligns with my analytical mindset. Analyzing and interpreting real-world data has always been my strongest skill both academically and professionally. I approach my responsibilities with dedication, delivering results with a solution-oriented attitude. I am a committed and idealistic person, continually prioritizing personal development.
+        The reason I chose Econometrics during my university life stems from how strongly this field aligns with my analytical mindset. My ability to analyze and interpret real-world data has always been my greatest strength in both academic and professional environments. I contribute to every project with a sense of responsibility, solution-oriented attitude, and a results-driven mindset. I’m an idealistic individual who values continuous personal growth, dedication, and self-improvement.
       </p>
-    </aside>
+    </section>
+  </aside>
 
-    <!-- Sağ panel - scroll ile hareket eden içerik -->
-    <main class="main-content" tabindex="0" aria-label="Main Content">
-      <section>
-        <h1>Education</h1>
-        <ul>
-          <li>Şehit Edip Zengin Anatolian High School (2016 - 2020)</li>
-          <li>Marmara University, Econometrics (2021 - 2025)</li>
-        </ul>
-      </section>
+  <!-- Sağ panel - scrollable -->
+  <main class="main-content">
+    
+    <section>
+      <h2>Education</h2>
+      <p><strong>Şehit Edip Zengin Anatolian High School</strong> (2016 – 2020)</p>
+      <p><strong>Marmara University, Econometrics</strong> (2021 – 2025)</p>
+    </section>
 
-      <section>
-        <h1>Experience & Skills</h1>
-        <ul>
-          <li>R (Tidyverse, Time Series Analysis)</li>
-          <li>SQL & Database Querying</li>
-          <li>Advanced Microsoft Excel</li>
-          <li>Econometric Modeling with EViews</li>
-          <li>Google Analytics, Meta Business Suite</li>
-          <li>Team Leadership & Project Completion</li>
-          <li>Independent Responsibility Taking</li>
-          <li>Creative Problem Solving</li>
-          <li>High Social Responsibility Awareness</li>
-          <li>Field Research Aptitude</li>
-          <li>Idealistic & Innovative Personality</li>
-        </ul>
-      </section>
+    <section>
+      <h2>Experience</h2>
+      <h3>Digital Marketing Specialist</h3>
+      <p><em>Group of Companies — February 2023 – Present</em></p>
+      <p>
+        For over 1.5 years, I have been driving digital marketing initiatives for a group of companies, focusing on enhancing brand visibility and performance across various online platforms.
+      </p>
+      <p><strong>Key responsibilities include:</strong></p>
+      <ul>
+        <li>Developing and executing multi-channel digital strategies</li>
+        <li>Managing paid advertising campaigns (Google Ads, Meta Business)</li>
+        <li>Tracking KPIs and generating actionable insights through performance analytics</li>
+        <li>Ensuring consistent brand identity across all content and channels</li>
+        <li>Contributing to SEO optimization, email marketing, and user engagement strategies</li>
+      </ul>
+      <p>
+        This role has equipped me with a comprehensive understanding of digital ecosystems and strengthened my ability to deliver measurable marketing results in dynamic environments.
+      </p>
+    </section>
 
-      <section>
-        <h1>My Projects</h1>
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+        <li>R (Tidyverse, Time Series Analysis)</li>
+        <li>SQL & Database Querying</li>
+        <li>Microsoft Excel (Advanced)</li>
+        <li>Econometric Modeling with EViews</li>
+        <li>Google Analytics, Meta Business</li>
+        <li>Team Leadership & Project Delivery</li>
+        <li>Creative Problem Solving</li>
+        <li>Strong Social Responsibility Awareness</li>
+        <li>Field Research Skills</li>
+        <li>Self-motivated & Idea-driven Personality</li>
+      </ul>
+    </section>
 
-        <h2>Econometric Projects</h2>
-        <ul>
-          <li>
-            Turkey’s Phillips Curve Analysis (EViews, 1980-2023)
-            <ul>
-              <li><a href="Phillips Eğrisinin Geçerlilik Sınaması-Türkiye.pdf" target="_blank" rel="noopener noreferrer">Phillips Curve Validity Test - Turkey</a></li>
-              <li><a href="Phillips Eğrisinin Geçerliliği Makale.pdf" target="_blank" rel="noopener noreferrer">Phillips Curve Research Paper</a></li>
-            </ul>
-          </li>
-          <li>
-            Time Series Econometrics Analysis: Unemployment-Inflation Relationship
-            <ul>
-              <li><a href="Zaman Serisi Ekonometrisi.pdf" target="_blank" rel="noopener noreferrer">Full Analysis PDF</a></li>
-              <li><a href="Zaman Serisi Ekonometrisi-.pdf" target="_blank" rel="noopener noreferrer">Supplementary Document</a></li>
-            </ul>
-          </li>
-          <li>
-            BIST100-BOG Relationship Analysis
-            <ul>
-              <li><a href="Zaman Serisi Ekonometrisi.pdf" target="_blank" rel="noopener noreferrer">Analysis Document</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="Kümeleme Analizi-.pdf" target="_blank" rel="noopener noreferrer">Cluster Analysis</a>
-          </li>
-        </ul>
+    <section>
+      <h2>Projects</h2>
 
-        <h2>Marketing & Media Projects</h2>
-        <ul>
-          <li><a href="-Pazarlama Hukuku Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">Marketing Law Project</a></li>
-          <li><a href="-Reklamcılık ve Pazarlama Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">Advertising and Marketing Project</a></li>
-          <li><a href="-Sosyal Medya Okuryazarlığı & Pazarlama Stratejileri Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">Social Media Literacy & Marketing Strategies Project</a></li>
-          <li><a href="-Yeni Medya ve Dijital Dönüşüm Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">New Media and Digital Transformation Campaign Project</a></li>
-        </ul>
-      </section>
+      <h3>Econometrics Projects</h3>
+      <ul>
+        <li>
+          Turkey's Phillips Curve Analysis (EViews, 1980–2023) — 
+          <a href="pdfs/Phillips Eğrisinin Geçerlilik Sınaması-Türkiye.pdf" target="_blank" rel="noopener noreferrer">Validity Test PDF</a>, 
+          <a href="pdfs/Phillips Eğrisinin Geçerliliği Makale.pdf" target="_blank" rel="noopener noreferrer">Research Paper PDF</a>
+        </li>
+        <li>
+          Time Series Econometrics Analysis: Unemployment-Inflation Relationship — 
+          <a href="pdfs/Zaman Serisi Ekonometrisi.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+        <li>
+          Time Series Econometrics Analysis: BIST100-BOG Relationship — 
+          <a href="pdfs/Zaman Serisi Ekonometrisi-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+        <li>
+          Cluster Analysis — 
+          <a href="pdfs/Kümeleme Analizi-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+      </ul>
 
-      <section>
-        <h1>Contact</h1>
-        <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank" rel="noopener noreferrer">linkedin.com/in/nurcankurtoglu</a></p>
-        <p>Location: Istanbul, Turkey</p>
-      </section>
-    </main>
-  </div>
+      <h3>Marketing Projects</h3>
+      <ul>
+        <li>
+          Marketing Law Project — 
+          <a href="pdfs/-Pazarlama Hukuku Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+        <li>
+          Advertising and Marketing Project — 
+          <a href="pdfs/-Reklamcılık ve Pazarlama Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+        <li>
+          Social Media Literacy & Marketing Strategies Project — 
+          <a href="pdfs/-Sosyal Medya Okuryazarlığı & Pazarlama Stratejileri Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+        <li>
+          New Media and Digital Transformation Campaign Project — 
+          <a href="pdfs/-Yeni Medya ve Dijital Dönüşüm Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        </li>
+      </ul>
+    </section>
 
-  <script src="background.js"></script>
+    <section>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com" style="color:#eee;">nurcankurtoglu100@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank" rel="noopener noreferrer" style="color:#eee;">linkedin.com/in/nurcankurtoglu</a></p>
+      <p>Location: Istanbul, Turkey</p>
+    </section>
+  </main>
+
+</div>
+
+<script src="background.js"></script>
 </body>
 </html>
