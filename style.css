@@ -1,110 +1,38 @@
-/* Genel Ayarlar */
-* {
-  margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  color: #eee;
-}
+/* Genel ayarlar */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; color:#fff;}
+body, html {height:100%; overflow:hidden; background: #000;}
+a {color:#aad8d3; text-decoration:underline;}
+a:hover {color:#fff;}
 
-body, html {
-  height: 100%;
-  background: transparent;
-  overflow: hidden;
-}
-
-a {
-  color: #aad8d3;
-  text-decoration: underline;
-}
-a:hover { color: #fff; }
-
-/* Arka plan canvas */
-#background {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  z-index: -1;
-}
-
-/* Container */
-.container {
-  display: flex;
-  height: 100vh;
-}
+.container {display:flex; height:100vh;}
 
 /* Sol panel */
 .sidebar {
-  width: 33.3333%;
-  background: rgba(20, 20, 35, 0.85);
-  padding: 30px 20px;
-  position: fixed;
-  top: 0; left: 0; bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-  box-shadow: 3px 0 15px rgba(0,0,0,0.7);
+  width:50%;
+  background-color:#000;
+  padding:40px 30px;
+  position:fixed;
+  top:0; left:0; bottom:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-/* Profil fotoğrafı */
-.profile-photo {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px #5b93bd;
-}
+.left-top {display:flex; flex-direction:row; align-items:center; justify-content:flex-start; gap:20px;}
 
-/* About Me */
-.about-me {
-  font-weight: 300;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #ddd;
-  text-align: left;
-  width: 100%;
-  max-width: 250px;
-}
+.profile-photo {width:150px; height:150px; border-radius:10px; object-fit:cover;}
+
+.about-me {flex:1; color:#fff; font-weight:300; line-height:1.5;}
 
 /* Sağ panel */
 .main-content {
-  width: 66.6666%;
-  margin-left: 33.3333%;
-  height: 100vh;
-  padding: 40px 50px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  width:50%;
+  margin-left:50%;
+  height:100vh;
+  padding:40px;
+  overflow-y:auto;
 }
 
-/* Başlıklar */
-h2 {
-  font-weight: 600;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
-}
-
-h3 {
-  font-weight: 500;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #eee;
-  margin-top: 20px;
-}
-
-/* Paragraflar ve listeler */
-p, ul {
-  font-weight: 300;
-  font-size: 1rem;
-  color: #ddd;
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-ul { list-style-type: disc; padding-left: 20px; }
-
-/* Scrollbar */
-.main-content::-webkit-scrollbar { width: 10px; }
-.main-content::-webkit-scrollbar-track { background: rgba(30,30,40,0.5); border-radius: 5px; }
-.main-content::-webkit-scrollbar-thumb { background: #5b93bd; border-radius: 5px; }
+h2 {font-weight:600; font-size:1.8rem; margin-bottom:15px; text-shadow:0 0 10px rgba(255,255,255,0.7);}
+ul {padding-left:20px; margin-bottom:15px;}
+p {margin-bottom:15px; line-height:1.6; font-weight:300;}
