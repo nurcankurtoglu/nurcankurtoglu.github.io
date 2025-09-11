@@ -2,32 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nurcan Kurtoğlu | Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Arka plan canvas -->
-<canvas id="background"></canvas>
+<!-- Sağ panel - yıldızlı arka plan -->
+<canvas id="starCanvas"></canvas>
 
 <div class="container">
 
-  <!-- Sol panel - sabit -->
+  <!-- Sol panel -->
   <aside class="sidebar">
-    <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu" class="profile-photo" />
-    <section class="about-me">
-      <h2>About Me</h2>
-      <p>
-        I have developed strong analytical skills during my university life, which perfectly align with the field of Econometrics. I am passionate about turning complex data into actionable insights. I approach projects with dedication, responsibility, and a solution-oriented mindset. Continuously focused on personal growth, I strive to be creative, proactive, and results-driven. With over 2 years of experience in data analysis and digital marketing, I contribute both academically and professionally with high performance.
-      </p>
-    </section>
+    <div class="left-top">
+      <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu" class="profile-photo" />
+      <div class="about-me">
+        <h2>About Me</h2>
+        <p>
+          I have developed strong analytical skills during my university life, which perfectly align with the field of Econometrics. I am passionate about turning complex data into actionable insights. I approach projects with dedication, responsibility, and a solution-oriented mindset. Continuously focused on personal growth, I strive to be creative, proactive, and results-driven. With over 2 years of experience in data analysis and digital marketing, I contribute both academically and professionally with high performance.
+        </p>
+      </div>
+    </div>
   </aside>
 
-  <!-- Sağ panel - scrollable -->
+  <!-- Sağ panel içerik -->
   <main class="main-content">
-
+    
     <!-- Education -->
     <section>
       <h2>Education</h2>
@@ -62,57 +64,20 @@
     <section>
       <h2>Econometrics Projects</h2>
       <ul>
-        <li>
-          Cluster Analysis — 
-          <a href="pdfs/Kümeleme Analizi-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          Phillips Curve Validity Test — 
-          <a href="pdfs/Phillips Eğrisinin Geçerlilik Sınaması-Türkiye.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          Phillips Curve Research Paper — 
-          <a href="pdfs/Phillips Eğrisinin Geçerliliği Makale.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          Time Series Analysis: BOG & BIST100 — 
-          <a href="pdfs/Zaman Serisi Ekonometrisi-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          Time Series Analysis: Unemployment & Inflation — 
-          <a href="pdfs/Zaman Serisi Ekonometrisi.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
+        <li><a href="pdfs/Kümeleme Analizi-.pdf" target="_blank">Cluster Analysis</a></li>
+        <li><a href="pdfs/Phillips Eğrisinin Geçerlilik Sınaması-Türkiye.pdf" target="_blank">Phillips Curve Validity Test</a></li>
+        <li><a href="pdfs/Phillips Eğrisinin Geçerliliği Makale.pdf" target="_blank">Phillips Curve Research Paper</a></li>
+        <li><a href="pdfs/Zaman Serisi Ekonometrisi-.pdf" target="_blank">Time Series Analysis: BOG & BIST100</a></li>
+        <li><a href="pdfs/Zaman Serisi Ekonometrisi.pdf" target="_blank">Time Series Analysis: Unemployment & Inflation</a></li>
       </ul>
 
       <h2>Marketing Projects</h2>
       <ul>
-        <li>
-          Marketing Law Project — 
-          <a href="pdfs/-Pazarlama Hukuku Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          Advertising & Marketing Project — 
-          <a href="pdfs/-Reklamcılık ve Pazarlama Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          Social Media Literacy & Marketing Strategies Project — 
-          <a href="pdfs/-Sosyal Medya Okuryazarlığı & Pazarlama Stratejileri Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
-        <li>
-          New Media & Digital Transformation Project — 
-          <a href="pdfs/-Yeni Medya ve Dijital Dönüşüm Projesi Nurcan Kurtoğlu-.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        </li>
+        <li><a href="pdfs/-Pazarlama Hukuku Projesi Nurcan Kurtoğlu-.pdf" target="_blank">Marketing Law Project</a></li>
+        <li><a href="pdfs/-Reklamcılık ve Pazarlama Projesi Nurcan Kurtoğlu-.pdf" target="_blank">Advertising & Marketing Project</a></li>
+        <li><a href="pdfs/-Sosyal Medya Okuryazarlığı & Pazarlama Stratejileri Projesi Nurcan Kurtoğlu-.pdf" target="_blank">Social Media Literacy & Marketing Strategies Project</a></li>
+        <li><a href="pdfs/-Yeni Medya ve Dijital Dönüşüm Projesi Nurcan Kurtoğlu-.pdf" target="_blank">New Media & Digital Transformation Project</a></li>
       </ul>
-    </section>
-
-    <!-- Additional Info -->
-    <section>
-      <h2>Additional Information</h2>
-      <p><strong>Technical Skills / Tools:</strong> R, SQL, Python, Excel, Canva, SEMrush, Google Analytics, Search Console, Stata, E-Views</p>
-      <p><strong>Analytical Skills:</strong> Time series analysis, data reporting, digital marketing analytics</p>
-      <p><strong>Certifications:</strong> Social Office Sales & Marketing Internship Program</p>
-      <p><strong>Awards/Activities:</strong> Licensed handball player for 8 years with 16 medals (2012–2020). Participation in art competitions with certificates. First place in Nursing Home Social Awareness Project, Marmara University. Completed Social Office Sales & Marketing Internship Program; eligibility for International Internship Program in Belgrade (2025).</p>
-      <p><strong>Languages:</strong> English</p>
     </section>
 
     <!-- Contact -->
@@ -124,9 +89,8 @@
     </section>
 
   </main>
-
 </div>
 
-<script src="background.js"></script>
+<script src="starBackground.js"></script>
 </body>
 </html>
