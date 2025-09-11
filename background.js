@@ -1,27 +1,49 @@
-(() => {
-  const canvas = document.getElementById("background");
-  const ctx = canvas.getContext("2d");
-  let width, height;
+const canvas = document.getElementById("starCanvas");
+const ctx = canvas.getContext("2d");
+let width = window.innerWidth/2, height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
 
-  class Star {
-    constructor() { this.reset(); }
-    reset() { this.x = Math.random()*width; this.y = Math.random()*height; this.size=Math.random()*1.2+0.5; this.opacity=Math.random(); this.opacitySpeed=0.005+Math.random()*0.005; this.increasing=Math.random()>0.5; }
-    update() { this.increasing ? (this.opacity+=this.opacitySpeed)>=1&&(this.increasing=false) : (this.opacity-=this.opacitySpeed)<=0.2&&(this.increasing=true); }
-    draw() { ctx.beginPath(); ctx.fillStyle=`rgba(255,255,255,${this.opacity})`; ctx.shadowColor='rgba(255,255,255,0.8)'; ctx.shadowBlur=5; ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
-  }
+window.addEventListener('resize',()=>{
+  width = window.innerWidth/2;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+});
 
-  let stars = [];
-  function initStars(count=150) { stars=[]; for(let i=0;i<count;i++){stars.push(new Star());} }
+const stars = [];
+const starCount = 150;
 
-  function resize() { width=window.innerWidth; height=window.innerHeight; canvas.width=width; canvas.height=height; initStars(); }
-  window.addEventListener('resize',resize);
-  resize();
+for(let i=0;i<starCount;i++){
+  stars.push({
+    x: Math.random()*width,
+    y: Math.random()*height,
+    radius: Math.random()*1.5+0.5,
+    opacity: Math.random(),
+    opacityDir: Math.random()>0.5?0.01:-0.01
+  });
+}
 
-  function animate() {
-    ctx.fillStyle='rgba(10,10,20,1)';
-    ctx.fillRect(0,0,width,height);
-    stars.forEach(s=>{s.update();s.draw();});
-    requestAnimationFrame(animate);
-  }
-  animate();
-})();
+canvas.addEventListener('mousemove', (e)=>{
+  const mx = e.clientX - width; 
+  const my = e.clientY;
+  stars.forEach(s=>{
+    s.x += (mx - s.x)*0.0005;
+    s.y += (my - s.y)*0.0005;
+  });
+});
+
+function draw(){
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0,0,width,height);
+  stars.forEach(s=>{
+    s.opacity += s.opacityDir;
+    if(s.opacity>1 || s.opacity<0.1) s.opacityDir*=-1;
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.radius,0,Math.PI*2);
+    ctx.fillStyle = `rgba(255,255,255,${s.opacity})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+draw();
