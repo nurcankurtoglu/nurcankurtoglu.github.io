@@ -1,3 +1,7 @@
+:root {
+  --link-color: #9ff8ff;     /* projeler link rengi — burayı istediğin hex ile değiştir */
+  --link-hover: #ffffff;     /* hover rengi */
+}
 /* Reset & fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap');
 
@@ -67,6 +71,18 @@ body {
   line-height: 1.5;
   color: rgba(230,235,245,0.95);
 }
+/* Sol panel: yalnızca about-me metnini sola dayalı yapar */
+.profile-box .about-me {
+  text-align: left;            /* metin sola yaslı */
+  margin: 0 auto;              /* kutu ortalanmış kalır */
+  max-width: 100%;
+}
+
+/* opsiyonel: başlık da sola başlasın istersen */
+.profile-box .profile-name {
+  text-align: left;
+  margin-left: 6px;
+}
 
 /* platform shadow visual under the left panel - subtle */
 .platform-shadow {
@@ -124,15 +140,18 @@ body {
 }
 
 /* Projects */
-.projects-list { list-style: none; padding-left:0; }
-.projects-list li { margin-bottom: 10px; }
 .projects-list a {
-  color: #9ff8ff;
+  color: var(--link-color);
   text-decoration: none;
   border-bottom: 1px dashed rgba(159,248,255,0.14);
-  padding-bottom: 2px;
+  padding-bottom: 1px;
 }
-.projects-list a:hover { color: #fff; text-decoration: underline; }
+
+.projects-list a:hover,
+.projects-list a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
 
 /* Footer */
 footer { text-align:center; margin: 32px 0 60px 0; color: rgba(200,210,220,0.7); }
@@ -188,17 +207,4 @@ a:focus { outline: 3px solid rgba(138,108,255,0.18); outline-offset: 3px; }
   #bg-canvas { pointer-events: none; }
 
   body { overflow: auto; }  /* sayfa yukarı-aşağı kaydırılsın */
-}
-
-/* Sol panelde sadece metni sola yasla */
-.profile-box .about-me {
-  text-align: left;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-/* Başlık da sola yaslansın istersen */
-.profile-box .profile-name {
-  text-align: left;
-  margin-left: 6px;
 }
