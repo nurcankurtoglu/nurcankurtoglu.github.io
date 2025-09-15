@@ -1,6 +1,6 @@
-:root {
-    --link-color: #00008B;   /* Koyu lacivert */
-    --link-hover: #ffffff;   /* Hover rengi beyaz kalabilir */
+:root { 
+    --link-color: #ffffff;   /* Linkler artık beyaz */
+    --link-hover: #00ffff;   /* Hover rengini istediğin renge değiştirebilirsin */
 }
 
 /* Reset & fonts */
@@ -212,11 +212,11 @@ a:focus { outline: 3px solid rgba(138,108,255,0.18); outline-offset: 3px; }
 }
 /* Contact bölüm linkleri */
 #right-panel section h2 + p a {
-    color: #00008B; /* koyu lacivert */
+    color: #ffffff;  /* beyaz link */
     text-decoration: none;
 }
 
 #right-panel section h2 + p a:hover {
-    color: #1E90FF; /* hover rengi */
+    color: #00ffff;  /* hover rengini isteğe göre ayarla */
     text-decoration: underline;
 }
