@@ -180,3 +180,15 @@ a:focus { outline: 3px solid rgba(138,108,255,0.18); outline-offset: 3px; }
   }
   body { overflow: auto; } /* allow page scroll on mobile */
 }
+/* Sol panelde sadece metni sola yasla */
+.profile-box .about-me {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Başlık da sola yaslansın istersen */
+.profile-box .profile-name {
+  text-align: left;
+  margin-left: 6px;
+}
