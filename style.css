@@ -3,12 +3,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 
-body, html {
+/* Fontlar */
+body {
+    font-family: 'Open Sans', sans-serif;
     height: 100%;
-    overflow: hidden;
+    color: white;
+    overflow: auto;
+    position: relative;
 }
 
 /* Container */
@@ -17,64 +20,51 @@ body, html {
     height: 100%;
 }
 
-/* Sol Panel */
+/* Left Panel */
 #left-panel {
-    width: 33%;
-    background: rgba(30,30,30,0.85);
+    width: 30%;
+    min-width: 260px;
+    background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
     padding: 20px;
-    z-index: 2;
-    flex-direction: column;
+    position: relative;
+    z-index: 2; /* Canvas'ın üstünde */
 }
 
 .profile-box {
     background: rgba(0,0,0,0.5);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
-    width: 100%;
 }
 
 .profile-photo {
     width: 100%;
-    max-width: 100px;
+    max-width: 220px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px; /* Dikdörtgen */
     object-fit: cover;
     margin-bottom: 20px;
 }
 
-.name {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
 .about-me {
+    color: white;
     font-size: 1rem;
-    line-height: 1.5;
-    color: #fff;
+    line-height: 1.6;
 }
 
-/* Sağ Panel */
+/* Right Panel */
 #right-panel {
-    margin-left: 33%;
-    width: 67%;
+    flex: 1;
     height: 100%;
     overflow-y: auto;
-    position: relative;
     padding: 40px;
-    color: black;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
 }
 
-/* Sections */
 .section {
     margin-bottom: 40px;
 }
@@ -83,14 +73,14 @@ body, html {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 15px;
-    border-bottom: 2px solid #ffffff33;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
     padding-bottom: 5px;
 }
 
 .skills-category h3 {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
 }
 
 ul {
@@ -104,16 +94,18 @@ ul {
 .projects-list a {
     color: #00ffff;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .projects-list a:hover {
     text-decoration: underline;
+    color: #fff;
 }
 
 footer {
     text-align: center;
     padding: 20px 0;
-    border-top: 1px solid #ffffff33;
+    border-top: 1px solid rgba(255,255,255,0.3);
     font-size: 0.9rem;
 }
 
@@ -121,18 +113,25 @@ footer {
 #right-panel::-webkit-scrollbar {
     width: 10px;
 }
-
 #right-panel::-webkit-scrollbar-track {
     background: #111;
 }
-
 #right-panel::-webkit-scrollbar-thumb {
     background: #555;
     border-radius: 5px;
 }
-
 #right-panel::-webkit-scrollbar-thumb:hover {
     background: #888;
+}
+
+/* Canvas (arka plan) */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 /* Responsive */
@@ -141,15 +140,14 @@ footer {
         flex-direction: column;
     }
     #left-panel {
-        position: relative;
         width: 100%;
         height: auto;
-        margin-bottom: 20px;
     }
     #right-panel {
-        margin-left: 0;
         width: 100%;
-        height: auto;
         padding: 20px;
+    }
+    .profile-photo {
+        max-width: 180px;
     }
 }
