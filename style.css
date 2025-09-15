@@ -93,6 +93,19 @@ body {
   z-index: 4;
   -webkit-overflow-scrolling: touch;
 }
+/* Experience list — kısa maddeler, skills ile görsel uyum */
+.experience-list {
+  list-style: none;
+  padding-left: 1.05rem;
+  margin-top: 8px;
+}
+
+.experience-list li {
+  margin-bottom: 10px;
+  line-height: 1.75;
+  font-size: 1rem;
+  color: rgba(230,235,245,0.95);
+}
 
 /* Section styles */
 .section { margin-bottom: 40px; }
