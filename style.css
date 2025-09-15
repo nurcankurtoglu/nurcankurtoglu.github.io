@@ -1,153 +1,169 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Reset & fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap');
 
-/* Fontlar */
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height: 100%; }
 body {
-    font-family: 'Open Sans', sans-serif;
-    height: 100%;
-    color: white;
-    overflow: auto;
-    position: relative;
+  font-family: 'Open Sans', sans-serif;
+  color: #e9eef6;
+  background: #000;      /* fallback */
+  overflow: hidden;      /* main page body won't scroll; right-panel will */
 }
 
-/* Container */
-#container {
-    display: flex;
-    height: 100%;
-}
+/* Container: left fixed, right scrollable */
+#container { display: flex; height: 100vh; width: 100vw; }
 
-/* Left Panel */
+/* LEFT PANEL */
 #left-panel {
-    width: 30%;
-    min-width: 260px;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    z-index: 2; /* Canvas'ın üstünde */
+  width: 33%;
+  min-width: 260px;
+  background: rgba(20,20,30,0.85);
+  position: fixed;       /* stays in place */
+  left: 0; top: 0; bottom: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 32px 20px;
+  z-index: 3;
+  box-shadow: 8px 0 40px rgba(0,0,0,0.6);
 }
 
+/* Profile box looks like platform card */
 .profile-box {
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
+  width: 100%;
+  max-width: 320px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.04);
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
 
+/* profile photo: rectangle, not too big */
 .profile-photo {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-    border-radius: 12px; /* Dikdörtgen */
-    object-fit: cover;
-    margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  max-width: 260px;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 10px;   /* rectangular with soft corners */
+  display: block;
+  margin: 0 auto 18px auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(255,255,255,0.03);
+}
+
+/* Name and about */
+.profile-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #f6fbff;
 }
 
 .about-me {
-    color: white;
-    font-size: 1rem;
-    line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(230,235,245,0.95);
 }
 
-/* Right Panel */
+/* platform shadow visual under the left panel - subtle */
+.platform-shadow {
+  position: absolute;
+  bottom: -22px;
+  left: 6%;
+  width: 88%;
+  height: 22px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* RIGHT PANEL */
 #right-panel {
-    flex: 1;
-    height: 100%;
-    overflow-y: auto;
-    padding: 40px;
-    position: relative;
-    z-index: 2;
+  margin-left: 33%;
+  width: 67%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 48px;
+  position: relative;
+  z-index: 4;
+  -webkit-overflow-scrolling: touch;
 }
 
-.section {
-    margin-bottom: 40px;
-}
-
+/* Section styles */
+.section { margin-bottom: 40px; }
 .section h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-    padding-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  color: #f7fbff;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding-bottom: 10px;
+}
+.section p, .section li {
+  color: rgba(230,235,245,0.95);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.skills-category h3 {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    font-family: 'Poppins', sans-serif;
-}
-
-ul {
-    list-style: none;
-}
-
-.projects-list li {
-    margin-bottom: 10px;
-}
-
+/* Projects */
+.projects-list { list-style: none; padding-left:0; }
+.projects-list li { margin-bottom: 10px; }
 .projects-list a {
-    color: #00ffff;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: #9ff8ff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(159,248,255,0.14);
+  padding-bottom: 2px;
+}
+.projects-list a:hover { color: #fff; text-decoration: underline; }
+
+/* Footer */
+footer { text-align:center; margin: 32px 0 60px 0; color: rgba(200,210,220,0.7); }
+
+/* Scrollbar (right-panel) */
+#right-panel::-webkit-scrollbar { width: 10px; }
+#right-panel::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+#right-panel::-webkit-scrollbar-thumb { background: rgba(120,130,150,0.25); border-radius: 8px; }
+#right-panel::-webkit-scrollbar-thumb:hover { background: rgba(120,130,150,0.35); }
+
+/* Canvas full-screen */
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: block;
+  pointer-events: none; /* canvas itself doesn't intercept clicks; we add listeners via JS if needed */
 }
 
-.projects-list a:hover {
-    text-decoration: underline;
-    color: #fff;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    font-size: 0.9rem;
-}
-
-/* Scrollbar Styling */
-#right-panel::-webkit-scrollbar {
-    width: 10px;
-}
-#right-panel::-webkit-scrollbar-track {
-    background: #111;
-}
-#right-panel::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 5px;
-}
-#right-panel::-webkit-scrollbar-thumb:hover {
-    background: #888;
-}
-
-/* Canvas (arka plan) */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
+/* Accessibility: ensure links visible on focus */
+a:focus { outline: 3px solid rgba(138,108,255,0.18); outline-offset: 3px; }
 
 /* Responsive */
+@media (max-width: 900px) {
+  #left-panel { width: 36%; }
+  #right-panel { margin-left: 36%; }
+}
+
 @media (max-width: 768px) {
-    #container {
-        flex-direction: column;
-    }
-    #left-panel {
-        width: 100%;
-        height: auto;
-    }
-    #right-panel {
-        width: 100%;
-        padding: 20px;
-    }
-    .profile-photo {
-        max-width: 180px;
-    }
+  /* stack for small screens */
+  #left-panel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 18px;
+  }
+  .platform-shadow { display: none; }
+  #right-panel {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  body { overflow: auto; } /* allow page scroll on mobile */
 }
