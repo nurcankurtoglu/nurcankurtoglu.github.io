@@ -1,4 +1,4 @@
-/* Reset ve font ayarları */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,36 +6,9 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-body {
+body, html {
     height: 100%;
     overflow: hidden;
-    transition: background 1s;
-}
-
-body.day {
-    background: linear-gradient(to bottom, #87CEFA, #ffffff);
-}
-
-body.night {
-    background: linear-gradient(to bottom, #0d0d2b, #000000);
-}
-
-#toggle-theme {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#toggle-theme:hover {
-    background: rgba(0,255,255,0.8);
 }
 
 /* Container */
@@ -47,33 +20,51 @@ body.night {
 /* Sol Panel */
 #left-panel {
     width: 33%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(30,30,30,0.85);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     padding: 20px;
+    z-index: 2;
+    flex-direction: column;
 }
 
 .profile-box {
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
+    width: 100%;
 }
 
 .profile-photo {
-    width: 180px;
-    height: 220px;
-    object-fit: cover;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
     border-radius: 10px;
+    object-fit: cover;
     margin-bottom: 20px;
 }
 
+.name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
 .about-me {
-    color: white;
     font-size: 1rem;
     line-height: 1.5;
+    color: #fff;
 }
 
 /* Sağ Panel */
 #right-panel {
+    margin-left: 33%;
     width: 67%;
     height: 100%;
     overflow-y: auto;
@@ -83,6 +74,7 @@ body.night {
     z-index: 1;
 }
 
+/* Sections */
 .section {
     margin-bottom: 40px;
 }
@@ -96,6 +88,7 @@ body.night {
 }
 
 .skills-category h3 {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     margin-top: 15px;
 }
@@ -111,14 +104,20 @@ ul {
 .projects-list a {
     color: #00ffff;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 .projects-list a:hover {
     text-decoration: underline;
 }
 
-/* Scrollbar */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ffffff33;
+    font-size: 0.9rem;
+}
+
+/* Scrollbar Styling */
 #right-panel::-webkit-scrollbar {
     width: 10px;
 }
@@ -136,32 +135,21 @@ ul {
     background: #888;
 }
 
-/* Canvas arka plan */
-#background-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     #container {
         flex-direction: column;
     }
-    #left-panel, #right-panel {
+    #left-panel {
+        position: relative;
         width: 100%;
-        height: 50vh;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    #right-panel {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
         padding: 20px;
-    }
-    .profile-photo {
-        width: 140px;
-        height: 180px;
-    }
-    .section h2 {
-        font-size: 1.5rem;
-    }
-    .about-me {
-        font-size: 0.9rem;
     }
 }
