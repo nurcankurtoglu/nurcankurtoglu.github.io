@@ -109,6 +109,7 @@ body {
   z-index: 4;
   -webkit-overflow-scrolling: touch;
 }
+
 /* Experience list — kısa maddeler, skills ile görsel uyum */
 .experience-list {
   list-style: none;
