@@ -1,96 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nurcan Kurtoğlu | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nurcan Kurtoğlu — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Sağ panel - yıldızlı arka plan -->
-<canvas id="starCanvas"></canvas>
+  <!-- Sağ panel için yalnızca sağda gösterilecek canvas -->
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
 
-<div class="container">
-
-  <!-- Sol panel -->
-  <aside class="sidebar">
-    <div class="left-top">
-      <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu" class="profile-photo" />
-      <div class="about-me">
-        <h2>About Me</h2>
-        <p>
-          I have developed strong analytical skills during my university life, which perfectly align with the field of Econometrics. I am passionate about turning complex data into actionable insights. I approach projects with dedication, responsibility, and a solution-oriented mindset. Continuously focused on personal growth, I strive to be creative, proactive, and results-driven. With over 2 years of experience in data analysis and digital marketing, I contribute both academically and professionally with high performance.
-        </p>
+  <div class="site">
+    <!-- SOL: sabit sidebar (%33) -->
+    <aside class="sidebar" role="complementary" aria-label="Sidebar">
+      <div class="sidebar-inner">
+        <div class="photo-block">
+          <img src="Kurumsal Fotoğrafım.jpg" alt="Nurcan Kurtoğlu" class="profile-photo">
+        </div>
+        <div class="about-block">
+          <h1 class="name">Nurcan Kurtoğlu</h1>
+          <h2 class="title">B.Sc. Econometrics · Aspiring Data Analyst</h2>
+          <p class="about-text">
+            I develop actionable insights from data using econometric and time-series methods. I combine strong analytical rigor with practical digital marketing experience to deliver measurable results. Focused on continuous learning and disciplined execution.
+          </p>
+        </div>
       </div>
-    </div>
-  </aside>
+    </aside>
 
-  <!-- Sağ panel içerik -->
-  <main class="main-content">
-    
-    <!-- Education -->
-    <section>
-      <h2>Education</h2>
-      <p><strong>Marmara University</strong> — Bachelor of Science in Econometrics, 2021–2025</p>
-      <p>Developed strong skills in statistical modeling, time series analysis, and data-driven problem solving, with a focus on applying these methods to business decision-making.</p>
-    </section>
+    <!-- SAĞ: ana içerik (scrollable) -->
+    <main class="main" role="main">
+      <section id="education">
+        <h2>Education</h2>
+        <div class="edu-item">
+          <h3>Marmara University</h3>
+          <p class="small">Bachelor of Science in Econometrics, 2021–2025</p>
+          <p>Developed strong skills in statistical modeling, time series analysis, and data-driven problem solving, with a focus on applying these methods to business decision-making.</p>
+        </div>
+      </section>
 
-    <!-- Skills -->
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>R (Tidyverse, Time Series Analysis)</li>
-        <li>SQL & Database Querying</li>
-        <li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
-        <li>Microsoft Excel (Advanced)</li>
-        <li>Econometric Modeling with EViews & Stata</li>
-        <li>Google Analytics, Meta Business, SEMrush, Search Console</li>
-        <li>Creative Problem Solving & Analytical Thinking</li>
-        <li>Team Leadership & Independent Responsibility</li>
-        <li>Social Responsibility Awareness & Field Research Skills</li>
-        <li>Time Series Analysis & Data Reporting</li>
-      </ul>
-    </section>
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+          <li>R (Tidyverse, Time Series Analysis)</li>
+          <li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+          <li>SQL & Database Querying</li>
+          <li>Microsoft Excel (Advanced)</li>
+          <li>EViews, Stata</li>
+          <li>Google Analytics, SEMrush, Search Console</li>
+          <li>Time Series Analysis, Data Reporting</li>
+        </ul>
+      </section>
 
-    <!-- Summary -->
-    <section>
-      <h2>Summary</h2>
-      <p>Turning complex data into strategic insights that drive growth and innovation, leveraging advanced skills in SQL, R, and Python. Experienced in data analysis, statistical modeling, digital marketing analytics, and visualization. Able to generate actionable recommendations and optimize strategies based on empirical evidence.</p>
-    </section>
+      <section id="summary">
+        <h2>Summary</h2>
+        <p>Turning complex data into strategic insights that drive growth and innovation, leveraging advanced skills in SQL, R, and Python. Experienced in data analysis, statistical modeling, digital marketing analytics, and visualization. Able to generate actionable recommendations and optimize strategies based on empirical evidence.</p>
+      </section>
 
-    <!-- Projects -->
-    <section>
-      <h2>Econometrics Projects</h2>
-      <ul>
-        <li><a href="pdfs/Kümeleme Analizi-.pdf" target="_blank">Cluster Analysis</a></li>
-        <li><a href="pdfs/Phillips Eğrisinin Geçerlilik Sınaması-Türkiye.pdf" target="_blank">Phillips Curve Validity Test</a></li>
-        <li><a href="pdfs/Phillips Eğrisinin Geçerliliği Makale.pdf" target="_blank">Phillips Curve Research Paper</a></li>
-        <li><a href="pdfs/Zaman Serisi Ekonometrisi-.pdf" target="_blank">Time Series Analysis: BOG & BIST100</a></li>
-        <li><a href="pdfs/Zaman Serisi Ekonometrisi.pdf" target="_blank">Time Series Analysis: Unemployment & Inflation</a></li>
-      </ul>
+      <section id="econometrics-projects">
+        <h2>Econometrics Projects</h2>
+        <ul class="project-list">
+          <li><a href="pdfs/cluster-analysis.pdf" target="_blank" rel="noopener">Cluster Analysis</a></li>
+          <li><a href="pdfs/phillips-validity-turkey.pdf" target="_blank" rel="noopener">Phillips Curve Validity Test (Turkey)</a></li>
+          <li><a href="pdfs/phillips-research.pdf" target="_blank" rel="noopener">Phillips Curve — Research Paper</a></li>
+          <li><a href="pdfs/bist-bog-timeseries.pdf" target="_blank" rel="noopener">Time Series Analysis: BOG & BIST100</a></li>
+          <li><a href="pdfs/unemployment-inflation-timeseries.pdf" target="_blank" rel="noopener">Unemployment & Inflation — Time Series Analysis</a></li>
+        </ul>
+      </section>
 
-      <h2>Marketing Projects</h2>
-      <ul>
-        <li><a href="pdfs/-Pazarlama Hukuku Projesi Nurcan Kurtoğlu-.pdf" target="_blank">Marketing Law Project</a></li>
-        <li><a href="pdfs/-Reklamcılık ve Pazarlama Projesi Nurcan Kurtoğlu-.pdf" target="_blank">Advertising & Marketing Project</a></li>
-        <li><a href="pdfs/-Sosyal Medya Okuryazarlığı & Pazarlama Stratejileri Projesi Nurcan Kurtoğlu-.pdf" target="_blank">Social Media Literacy & Marketing Strategies Project</a></li>
-        <li><a href="pdfs/-Yeni Medya ve Dijital Dönüşüm Projesi Nurcan Kurtoğlu-.pdf" target="_blank">New Media & Digital Transformation Project</a></li>
-      </ul>
-    </section>
+      <section id="marketing-projects">
+        <h2>Marketing Projects</h2>
+        <ul class="project-list">
+          <li><a href="pdfs/marketing-law.pdf" target="_blank" rel="noopener">Marketing Law Project</a></li>
+          <li><a href="pdfs/advertising-marketing.pdf" target="_blank" rel="noopener">Advertising & Marketing Project</a></li>
+          <li><a href="pdfs/socialmedia-literacy.pdf" target="_blank" rel="noopener">Social Media Literacy & Marketing Strategies</a></li>
+          <li><a href="pdfs/newmedia-digitaltransformation.pdf" target="_blank" rel="noopener">New Media & Digital Transformation</a></li>
+        </ul>
+      </section>
 
-    <!-- Contact -->
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank">linkedin.com/in/nurcankurtoglu</a></p>
-      <p>Location: Istanbul, Turkey</p>
-    </section>
+      <section id="additional">
+        <h2>Additional Information</h2>
+        <p><strong>Technical Skills / Tools:</strong> R, SQL, Python, Excel, Canva, SEMrush, Google Analytics, Search Console, Stata, E-Views</p>
+        <p><strong>Analytical Skills:</strong> Time series analysis, data reporting, digital marketing analytics</p>
+        <p><strong>Certifications:</strong> Social Office Sales & Marketing Internship Program</p>
+        <p><strong>Awards / Activities:</strong> Licensed handball player for 8 years (16 medals); First place in Nursing Home Social Awareness Project; Completed Social Office Internship — eligible for International Internship (Belgrade 2025).</p>
+        <p><strong>Languages:</strong> English</p>
+      </section>
 
-  </main>
-</div>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:nurcankurtoglu100@gmail.com">nurcankurtoglu100@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/nurcankurtoglu" target="_blank" rel="noopener">linkedin.com/in/nurcankurtoglu</a></p>
+        <p>Location: Istanbul, Turkey</p>
+      </section>
+    </main>
+  </div>
 
-<script src="starBackground.js"></script>
+  <script src="starBackground.js"></script>
 </body>
 </html>
