@@ -61,14 +61,6 @@
     });
   }
 
-  // Moon
-  const moon = {
-    x: window.innerWidth * 0.78,
-    y: window.innerHeight * 0.18,
-    r: Math.min(70, window.innerWidth * 0.06),
-    phase: 0.0
-  };
-
   // helper: draw radial glow
   function radialGlow(x,y,r, color, intensity) {
     const g = ctx.createRadialGradient(x,y,0,x,y,r);
@@ -148,19 +140,6 @@
       ctx.fill();
       ctx.restore();
     });
-
-    // moon & moon glow
-    radialGlow(moon.x, moon.y, moon.r*5, 'rgba(220,230,255,0.06)');
-    // moon disk
-    ctx.beginPath();
-    ctx.fillStyle = '#f1f3f8';
-    ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI*2);
-    ctx.fill();
-    // slight crescent shadow for realism
-    ctx.beginPath();
-    ctx.fillStyle = 'rgba(0,0,0,0.06)';
-    ctx.arc(moon.x + moon.r*0.32, moon.y - moon.r*0.06, moon.r*0.98, 0, Math.PI*2);
-    ctx.fill();
 
     // draw stars (twinkling + slow fall)
     stars.forEach(s => {
@@ -269,9 +248,4 @@
   }, { passive: false });
 
   // keep canvas sized on resize
-  window.addEventListener('resize', () => {
-    // reposition moon to remain relative
-    moon.x = window.innerWidth * 0.78;
-    moon.y = window.innerHeight * 0.18;
-  });
 })();
