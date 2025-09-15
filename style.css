@@ -202,10 +202,3 @@ a:focus { outline: 3px solid rgba(138,108,255,0.18); outline-offset: 3px; }
   text-align: left;
   margin-left: 6px;
 }
-.about-me {
-    color: white;
-    font-size: 1rem;
-    line-height: 1.7; /* önceki 1.5 yerine biraz daha açık */
-    text-align: left; /* yazıyı sol tarafa dayalı yapar */
-    margin-top: 10px;
-}
