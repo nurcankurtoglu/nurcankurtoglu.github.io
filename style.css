@@ -1,14 +1,41 @@
-/* Reset */
+/* Reset ve font ayarları */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
-body, html {
+body {
     height: 100%;
     overflow: hidden;
+    transition: background 1s;
+}
+
+body.day {
+    background: linear-gradient(to bottom, #87CEFA, #ffffff);
+}
+
+body.night {
+    background: linear-gradient(to bottom, #0d0d2b, #000000);
+}
+
+#toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggle-theme:hover {
+    background: rgba(0,255,255,0.8);
 }
 
 /* Container */
@@ -17,29 +44,25 @@ body, html {
     height: 100%;
 }
 
-/* Left Panel */
+/* Sol Panel */
 #left-panel {
     width: 33%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     padding: 20px;
 }
 
 .profile-box {
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-    border-radius: 10px;
     text-align: center;
 }
 
 .profile-photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 180px;
+    height: 220px;
     object-fit: cover;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
@@ -49,23 +72,23 @@ body, html {
     line-height: 1.5;
 }
 
-/* Right Panel */
+/* Sağ Panel */
 #right-panel {
     width: 67%;
     height: 100%;
     overflow-y: auto;
     position: relative;
-    background: black;
     padding: 40px;
     color: white;
+    z-index: 1;
 }
 
-/* Sections */
 .section {
     margin-bottom: 40px;
 }
 
 .section h2 {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 15px;
     border-bottom: 2px solid #ffffff33;
@@ -88,20 +111,14 @@ ul {
 .projects-list a {
     color: #00ffff;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .projects-list a:hover {
     text-decoration: underline;
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #ffffff33;
-    font-size: 0.9rem;
-}
-
-/* Scrollbar Styling */
+/* Scrollbar */
 #right-panel::-webkit-scrollbar {
     width: 10px;
 }
@@ -119,6 +136,14 @@ footer {
     background: #888;
 }
 
+/* Canvas arka plan */
+#background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     #container {
@@ -127,5 +152,16 @@ footer {
     #left-panel, #right-panel {
         width: 100%;
         height: 50vh;
+        padding: 20px;
+    }
+    .profile-photo {
+        width: 140px;
+        height: 180px;
+    }
+    .section h2 {
+        font-size: 1.5rem;
+    }
+    .about-me {
+        font-size: 0.9rem;
     }
 }
