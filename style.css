@@ -164,22 +164,32 @@ a:focus { outline: 3px solid rgba(138,108,255,0.18); outline-offset: 3px; }
 }
 
 @media (max-width: 768px) {
-  /* stack for small screens */
+  /* Stack layout: left panel on top, right panel below */
   #left-panel {
-    position: relative;
+    position: sticky;    /* üstte görünür kalır; kullanma istersen 'relative' yap */
+    top: 0;
     width: 100%;
     height: auto;
-    padding: 18px;
+    z-index: 6;
+    padding: 16px;
   }
-  .platform-shadow { display: none; }
+
+  .platform-shadow { display: none; }  /* mobilde gölge gizle */
+
   #right-panel {
     margin-left: 0;
     width: 100%;
     height: auto;
-    padding: 20px;
+    overflow: visible;
+    padding: 18px;
   }
-  body { overflow: auto; } /* allow page scroll on mobile */
+
+  /* canvas: hala arka planı kaplasın ama dokunmayı engelleme (touch events JS ile işlenecek) */
+  #bg-canvas { pointer-events: none; }
+
+  body { overflow: auto; }  /* sayfa yukarı-aşağı kaydırılsın */
 }
+
 /* Sol panelde sadece metni sola yasla */
 .profile-box .about-me {
   text-align: left;
